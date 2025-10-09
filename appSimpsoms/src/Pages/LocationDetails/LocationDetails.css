@@ -7,15 +7,127 @@
 
 .locations-styles .MuiCard-root {
     width: 300px;
-    /* ancho fijo */
-    /* height: 400px; */
-    /* altura fija */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* distribuye el contenido dentro de la card */
+}
+
+.locations-header {
+    width: 100%;
+    background: linear-gradient(90deg, #FFF7D6 0%, #FFF3C0 100%);
+    border-bottom: 4px solid rgba(209, 178, 113, 0.18);
+    padding: 18px 12px;
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
 }
 
 .MuiCard-root .MuiCardContent-root {
     overflow: auto;
+}
+
+.locations-styles {
+    background-color: #70D1FE;
+    border: 2px solid #70D1FE;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.locations-container {
+    background-color: #70D1FE;
+    padding-bottom: 1rem;
+}
+
+.locations-header {
+    text-align: center;
+    margin: 0 0 18px 0;
+}
+
+.locations-title {
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: -0.5px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.locations-title .highlight {
+    color: #D1B271;
+    text-shadow: 0 2px 6px rgba(209, 178, 113, 0.3);
+}
+
+.locations-subtitle {
+    color: #0f172a;
+    opacity: 0.85;
+    margin-top: 6px;
+}
+
+.pagination {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    margin: 28px 0 48px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 18px;
+    border-radius: 999px;
+    box-shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
+    border: 1px solid rgba(209, 178, 113, 0.08);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-btn {
+    background: linear-gradient(180deg, #FFD700, #F5C04A);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.14);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.page-btn:not(:disabled):hover {
+    transform: translateY(-3px);
+}
+
+.page-btn::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    display: inline-block;
+    transform: translateY(1px);
+}
+
+.page-info {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+@media (max-width: 720px) {
+    .locations-title {
+        font-size: 1.6rem;
+    }
+
+    .pagination {
+        gap: 12px;
+        padding: 10px 12px;
+    }
+
+    .page-btn {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
 }

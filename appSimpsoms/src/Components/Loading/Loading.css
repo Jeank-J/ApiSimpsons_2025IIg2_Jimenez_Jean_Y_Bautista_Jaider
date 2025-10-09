@@ -1,0 +1,61 @@
+.loading-overlay {
+    position: fixed;
+    top: var(--header-height, 10px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 900;
+    background: radial-gradient(circle at center, rgba(112, 209, 254, 0.18), rgba(16, 24, 40, 0.12));
+    backdrop-filter: blur(3px);
+}
+
+.loading-card {
+    border-radius: 16px;
+    padding: 28px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 40px rgba(2, 6, 23, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.loading-gif {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px;
+}
+
+.loading-ring {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-card {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .loading-gif {
+        width: 140px;
+        height: 140px;
+    }
+
+}
