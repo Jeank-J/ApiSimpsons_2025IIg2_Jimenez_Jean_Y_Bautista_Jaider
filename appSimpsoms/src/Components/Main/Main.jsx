@@ -67,6 +67,42 @@ const Main = () => {
                     </div>
                 </div>
             </section>
+
+            <section className="py-5 bg-light text-dark">
+                <div className="container text-center">
+                    <h3 className="fw-bold text-primary mb-4">¿Qué puedes hacer en AppSimpsons?</h3>
+                    <div className="row">
+                        <div className="col-md-4 mb-4">
+                            <div className="card h-100 border-0 shadow-sm">
+                                <div className="card-body">
+                                    <i className="bi bi-people display-4 text-warning"></i>
+                                    <h5 className="mt-3">Explorar Personajes</h5>
+                                    <p>Descubre información sobre tus personajes favoritos con datos obtenidos directamente desde la API.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4 mb-4">
+                            <div className="card h-100 border-0 shadow-sm">
+                                <div className="card-body">
+                                    <i className="bi bi-geo-alt display-4 text-warning"></i>
+                                    <h5 className="mt-3">Conocer Lugares</h5>
+                                    <p>Visita virtualmente los sitios más emblemáticos de Springfield y su historia dentro de la serie.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4 mb-4">
+                            <div className="card h-100 border-0 shadow-sm">
+                                <div className="card-body">
+                                    <i className="bi bi-tv display-4 text-warning"></i>
+                                    <h5 className="mt-3">Revivir Episodios</h5>
+                                    <p>Consulta la lista de episodios, detalles de emisión y curiosidades de cada temporada.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </>
     )
 }
