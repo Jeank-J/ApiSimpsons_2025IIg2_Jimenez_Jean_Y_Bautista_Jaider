@@ -1,0 +1,21 @@
+.locations-styles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+}
+
+.locations-styles .MuiCard-root {
+    width: 300px;
+    /* ancho fijo */
+    /* height: 400px; */
+    /* altura fija */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* distribuye el contenido dentro de la card */
+}
+
+.MuiCard-root .MuiCardContent-root {
+    overflow: auto;
+}
