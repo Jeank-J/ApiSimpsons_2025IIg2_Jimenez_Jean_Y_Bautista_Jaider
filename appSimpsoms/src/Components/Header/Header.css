@@ -1,7 +1,30 @@
-header{
-    background-color: rgb(189, 190, 175);
-    height: 20vh;
-    display: flex;
-    justify-content: center;
+.header-container {
+    background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+.logo {
+    height: 60px;
+    max-height: 60px;
+    width: auto;
+    padding: 8px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+
+.simpsons-text {
+    font-family: 'SimpsonsFont', 'Arial', sans-serif !important;
+}
+
+.mobile-drawer .MuiListItemText-primary {
+    font-family: 'SimpsonsFont', 'Arial', sans-serif !important;
+}
