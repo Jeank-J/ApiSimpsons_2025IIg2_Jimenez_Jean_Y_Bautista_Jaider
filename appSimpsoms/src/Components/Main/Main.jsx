@@ -1,5 +1,7 @@
 import React from 'react'
 import './Main.css'
+import CardAuthor from '../CardAuthor/CardAuthor'
+
 const Main = () => {
     return (
         <>
@@ -103,6 +105,14 @@ const Main = () => {
                 </div>
             </section>
 
+
+            <section className="container py-5">
+                <h3 className="text-center mb-4 text-primary fw-bold">Autores del Proyecto</h3>
+                <div className="row justify-content-center">
+                    <CardAuthor />
+                    <CardAuthor />
+                </div>
+            </section>
         </>
     )
 }
