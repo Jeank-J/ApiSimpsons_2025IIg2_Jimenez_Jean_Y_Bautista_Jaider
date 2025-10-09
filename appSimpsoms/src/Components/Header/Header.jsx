@@ -14,11 +14,20 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+
+import { Link } from 'react-router-dom';
+
+
 import './Header.css'
 import tituloImg from '../../assets/titulo.svg'
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Characters', path: '/Characters' },
+    { label: 'Episodes', path: '/Episodes' },
+    { label: 'Locations', path: '/Locations' },
+];
 
 function DrawerAppBar(props) {
     const { window } = props;
@@ -36,10 +45,12 @@ function DrawerAppBar(props) {
             <Divider />
             <List>
                 {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }} className="simpsons-text">
+                    <ListItem key={item.label} disablePadding>
+                        <ListItemButton sx={{ textAlign: 'center' }} className="simpsons-text"
+                            component={Link} to={item.path}
+                        >
                             <ListItemText
-                                primary={item}
+                                primary={item.label}
                                 sx={{ '& .MuiListItemText-primary': { fontFamily: 'SimpsonsFont, Arial, sans-serif' } }}
                             />
                         </ListItemButton>
@@ -82,11 +93,12 @@ function DrawerAppBar(props) {
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
                             <Button
-                                key={item}
+                                component={Link} to={item.path}
+                                key={item.label}
                                 sx={{ color: '#FFFFFF', fontWeight: 'bold' }}
                                 className="simpsons-text"
                             >
-                                {item}
+                                {item.label}
                             </Button>
                         ))}
                     </Box>
