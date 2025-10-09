@@ -1,9 +1,10 @@
 import React from 'react'
 import './Header.css'
+import titulo from '../../assets/titulo.svg'
 const Header = () => {
   return (
     <header>
-        hoola
+        <img src={titulo} alt="The Simpsons" />
     </header>
   )
 }
