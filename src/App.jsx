@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { Toolbar } from '@mui/material';
 
 import './App.css'
@@ -16,7 +16,7 @@ function App() {
 
     return (
         <>
-            <BrowserRouter>
+            <HashRouter>
                 <Header />
                 <Toolbar />
                 <Routes>
@@ -26,7 +26,7 @@ function App() {
                     <Route path="/Episodes" element={<EpisodeDetails />} />
                     <Route path="/Locations" element={<LocationDetails />} />
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
             <Footer />
         </>
     )
