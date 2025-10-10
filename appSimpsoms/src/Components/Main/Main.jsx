@@ -39,6 +39,16 @@ const Main = () => {
             <section className="py-5 bg-light text-dark" id="about">
                 <div className="container">
                     <div className="row align-items-center">
+
+                        {/* Columna de imagen */}
+                        <div className="col-md-5 text-center">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"
+                                alt="Familia Simpson"
+                                className="img-fluid rounded shadow-sm"
+                            />
+                        </div>
+
                         {/* Columna de texto */}
                         <div className="col-md-7">
                             <h3 className="fw-bold mb-4 text-primary border-bottom pb-2">
@@ -58,19 +68,11 @@ const Main = () => {
                             </p>
                         </div>
 
-                        {/* Columna de imagen */}
-                        <div className="col-md-5 text-center">
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"
-                                alt="Familia Simpson"
-                                className="img-fluid rounded shadow-sm"
-                            />
-                        </div>
                     </div>
                 </div>
             </section>
 
-            <section className="py-5 bg-light text-dark">
+            <section className="py-5 bg-warning-subtle text-dark">
                 <div className="container text-center">
                     <h3 className="fw-bold text-primary mb-4">¿Qué puedes hacer en AppSimpsons?</h3>
                     <div className="row">
