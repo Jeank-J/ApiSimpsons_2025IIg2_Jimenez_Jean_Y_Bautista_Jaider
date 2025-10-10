@@ -1,9 +1,10 @@
 import React from 'react'
 import { useEffect, useState } from "react";
+import CardCharacter from '../../Components/CardCharacter/CardCharacter'
 
-
-
+import './CharacterDetails.css';
 const CharacterDetails = () => {
+
     const [characters, setCharacters] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
@@ -31,26 +32,37 @@ const CharacterDetails = () => {
                 <p>Cargando...</p>
             ) : (
                 <div>
-                    <ul>
-                        {characters.map(character => (
-                            <li key={character.id}>
-                                <h2>{character.name}</h2>
-                                <img src={
-                                    `https://cdn.thesimpsonsapi.com/500${character.portrait_path}`
-                                } alt={character.name} width="100" />
-                                <p>{character.description}</p>
-                            </li>
-                        ))}
+                    <ul className="characters-list">
+                        {
+                            characters.map(character => (
+                                <CardCharacter key={character.id} character={character} />
+                            ))
+                        }
                     </ul>
-                    <div>
-                        <button onClick={() => setPage(prev => Math.max(prev - 1, 1))} disabled={page === 1}>
+
+
+                    <div className="d-flex justify-content-center align-items-center my-5">
+                        <button
+                            className="btn btn-primary mx-2"
+                            onClick={() => setPage(prev => Math.max(prev - 1, 1))}
+                            disabled={page === 1}
+                        >
                             Anterior
                         </button>
-                        <span>Pagina {page} de {totalPages}</span>
-                        <button onClick={() => setPage(prev => Math.min(prev + 1, totalPages))} disabled={page === totalPages}>
+
+                        <span className="mx-3 fs-5">
+                            Pagina {page} de {totalPages}
+                        </span>
+
+                        <button
+                            className="btn btn-primary mx-2"
+                            onClick={() => setPage(prev => Math.min(prev + 1, totalPages))}
+                            disabled={page === totalPages}
+                        >
                             Siguiente
                         </button>
                     </div>
+
                 </div>
             )}
 
