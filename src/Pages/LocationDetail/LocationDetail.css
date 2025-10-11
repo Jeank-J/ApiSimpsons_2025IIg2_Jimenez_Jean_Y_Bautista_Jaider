@@ -1,0 +1,88 @@
+.location-detail-page {
+    background: linear-gradient(135deg, #70D1FE 0%, #87CEEB 100%);
+    min-height: 100vh;
+    width: 100%;
+}
+
+.location-detail-container {
+    padding: 20px 0 60px;
+
+}
+
+.location-detail-card {
+    margin: 0 auto;
+    max-width: 900px;
+    background: #FFF7D6;
+    border: 2px solid rgba(209, 178, 113, 0.1);
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.22), 0 6px 16px rgba(15, 23, 42, 0.12);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.location-detail-card:hover {
+
+    box-shadow: 0 28px 64px rgba(15, 23, 42, 0.28), 0 10px 24px rgba(15, 23, 42, 0.14);
+}
+
+.location-detail-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, #FFD700, #F5C04A, #FFD700);
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.location-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.location-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #FFD700, #F5C04A);
+    border-radius: 2px;
+}
+
+.location-chips .MuiChip-root {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.location-chips .MuiChip-root:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .location-detail-container {
+        padding: 10px 0 40px;
+    }
+
+    .location-detail-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 22px 50px rgba(15, 23, 42, 0.26), 0 8px 20px rgba(15, 23, 42, 0.14);
+    }
+
+    .location-title {
+        font-size: 2rem !important;
+    }
+
+    .location-detail-card .MuiCardContent-root {
+        padding: 20px !important;
+    }
+
+    .location-chips {
+        justify-content: center !important;
+    }
+}

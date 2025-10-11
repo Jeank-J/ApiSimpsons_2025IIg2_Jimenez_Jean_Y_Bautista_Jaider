@@ -4,10 +4,16 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
+import { useNavigate } from 'react-router-dom';
 import './CardsLocation.css'
 import noImg from '../../assets/NoImg.jpg'
 
 const ActionAreaCard = ({ Location }) => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/location/${Location.id}`);
+    };
 
     return (
         <Card sx={{
@@ -23,6 +29,7 @@ const ActionAreaCard = ({ Location }) => {
             backgroundColor: '#F5F5DC'
         }}>
             <CardActionArea
+                onClick={handleClick}
                 disableRipple
                 disableTouchRipple
                 sx={{

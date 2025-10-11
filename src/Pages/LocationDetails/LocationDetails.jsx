@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from "react";
+import { useSearchParams } from 'react-router-dom';
 import CardsLocation from '../../Components/CardsLocation/CardsLocation';
 import Loading from '../../Components/Loading/Loading';
 import './LocationDetails.css'
@@ -7,25 +8,39 @@ const base = "https://cdn.thesimpsonsapi.com/500";
 
 const LocationDetails = () => {
     const [locations, setLocations] = useState([]);
-    const [page, setPage] = useState(1);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const initialPage = Number(searchParams.get('page')) || 1;
+    const [page, setPage] = useState(initialPage);
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(true);
     const [totalLocations, setTotalLocations] = useState(0);
     const [preloadedImg, setPreloadedImg] = useState(null);
+
     const preloadRandomImage = async () => {
         try {
             setPreloadedImg(null);
-            const max = totalLocations > 0 ? totalLocations : 1;
-            const random = Math.floor(Math.random() * max) + 1;
-            const res = await fetch(`https://thesimpsonsapi.com/api/locations/${random}`);
-            const data = await res.json();
-            const img = new Image();
-            img.src = `${base}${data.image_path}`;
-            await new Promise(resolve => {
-                img.onload = resolve;
-                img.onerror = resolve;
-            });
-            setPreloadedImg(img.src);
+            const cached = Number(localStorage.getItem('locations.count')) || 0;
+            // Fallback razonable si no tenemos el count aún
+            const max = cached > 0 ? cached : 500;
+
+            // Intentar hasta 3 veces obtener una imagen válida
+            for (let attempt = 0; attempt < 3; attempt++) {
+                const random = Math.floor(Math.random() * max) + 1;
+                try {
+                    const res = await fetch(`https://thesimpsonsapi.com/api/locations/${random}`);
+                    if (!res.ok) continue;
+                    const data = await res.json();
+                    if (!data || !data.image_path) continue;
+                    const img = new Image();
+                    img.src = `${base}${data.image_path}`;
+                    await new Promise(resolve => {
+                        img.onload = resolve;
+                        img.onerror = resolve;
+                    });
+                    setPreloadedImg(img.src);
+                    break;
+                } catch {/* ignorar e intentar de nuevo */ }
+            }
         } catch (err) {
             console.error("Error precargando imagen:", err);
         }
@@ -45,6 +60,9 @@ const LocationDetails = () => {
                 setLocations(data.results);
                 setTotalPages(data.pages);
                 setTotalLocations(data.count);
+                try {
+                    localStorage.setItem('locations.count', String(data.count || 0));
+                } catch { }
                 const timeElapsed = Date.now() - startTime;
                 const remaining = Math.max(0, delay - timeElapsed);
                 setTimeout(() => setLoading(false), remaining);
@@ -56,6 +74,20 @@ const LocationDetails = () => {
 
         fetchData();
     }, [page]);
+
+    useEffect(() => {
+        const current = Number(searchParams.get('page')) || 1;
+        if (current !== page) {
+            setSearchParams({ page: String(page) }, { replace: true });
+        }
+    }, [page]);
+
+    useEffect(() => {
+        const current = Number(searchParams.get('page')) || 1;
+        if (current !== page) {
+            setPage(current);
+        }
+    }, [searchParams]);
 
 
     if (loading) return <Loading preloadedImg={preloadedImg} />;
