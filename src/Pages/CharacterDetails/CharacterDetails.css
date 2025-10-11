@@ -1,9 +1,8 @@
 .characters-list {
   display: flex;
-  flex-wrap: wrap;       /* Permite que salten a otra línea si hay muchos */
-  gap: 20px;             /* Espacio entre elementos */
-  list-style: none;      /* Quita los puntos de la lista */
+  flex-wrap: wrap;     
+  gap: 30px;         
   padding: 0;
-  justify-content: center; /* Centra el contenido horizontalmente */
+  justify-content: center; 
 }
 
