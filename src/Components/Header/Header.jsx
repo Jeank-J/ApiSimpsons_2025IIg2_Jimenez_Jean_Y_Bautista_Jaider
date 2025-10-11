@@ -46,12 +46,30 @@ function DrawerAppBar(props) {
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.label} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }} className="simpsons-text"
+                        <ListItemButton
+                            sx={{
+                                textAlign: 'center',
+                                transition: 'all 0.3s ease-in-out',
+                                borderRadius: '8px',
+                                margin: '4px 8px',
+                                '&:hover': {
+                                    backgroundColor: '#FFD700',
+                                    color: '#0f172a',
+                                    transform: 'translateX(8px)',
+                                    boxShadow: '0 2px 8px rgba(255, 215, 0, 0.3)'
+                                }
+                            }}
+                            className="simpsons-text"
                             component={Link} to={item.path}
                         >
                             <ListItemText
                                 primary={item.label}
-                                sx={{ '& .MuiListItemText-primary': { fontFamily: 'SimpsonsFont, Arial, sans-serif' } }}
+                                sx={{
+                                    '& .MuiListItemText-primary': {
+                                        fontFamily: 'SimpsonsFont, Arial, sans-serif',
+                                        fontWeight: 'bold'
+                                    }
+                                }}
                             />
                         </ListItemButton>
                     </ListItem>
@@ -100,7 +118,26 @@ function DrawerAppBar(props) {
                             <Button
                                 component={Link} to={item.path}
                                 key={item.label}
-                                sx={{ color: '#FFFFFF', fontWeight: 'bold' }}
+                                sx={{
+                                    color: '#FFFFFF',
+                                    fontWeight: 'bold',
+                                    marginX: 1,
+                                    borderRadius: '20px',
+                                    padding: '8px 16px',
+                                    transition: 'all 0.3s ease-in-out',
+                                    position: 'relative',
+                                    backgroundColor: 'transparent',
+                                    '&:hover': {
+                                        backgroundColor: '#FFD700',
+                                        color: '#0f172a',
+                                        transform: 'translateY(-2px)',
+                                        boxShadow: '0 4px 12px rgba(255, 215, 0, 0.4)'
+                                    },
+                                    '&:active': {
+                                        transform: 'translateY(0px)',
+                                        transition: 'transform 0.1s ease'
+                                    }
+                                }}
                                 className="simpsons-text"
                             >
                                 {item.label}
@@ -110,9 +147,7 @@ function DrawerAppBar(props) {
                 </Toolbar>
             </AppBar>
             <nav>
-
                 <Drawer
-
                     container={container}
                     variant="temporary"
                     open={mobileOpen}

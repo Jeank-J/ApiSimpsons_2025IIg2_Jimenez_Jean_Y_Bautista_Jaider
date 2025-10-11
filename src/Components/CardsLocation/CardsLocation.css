@@ -1,0 +1,6 @@
+.cards-divider {
+    background: linear-gradient(90deg, transparent, #FFD700, transparent) !important;
+    height: 2px !important;
+    margin: 1.5rem 0 !important;
+    border: none !important;
+}

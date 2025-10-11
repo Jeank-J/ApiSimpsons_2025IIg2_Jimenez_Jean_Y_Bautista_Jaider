@@ -50,9 +50,10 @@ const ActionAreaCard = ({ Location }) => {
 
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div" fontFamily={'SimpsonsFont'}>
+                    <Typography gutterBottom variant="h5" component="div" fontFamily={'SimpsonsFont'} sx={{ textAlign: 'center' }}>
                         {Location.name ? Location.name : 'Unknown Location'}
                     </Typography>
+                    <div className="cards-divider" />
                     <Typography variant="body2" sx={{ color: 'text.secondary' }} fontFamily={'monospace'}>
 
                         Town: {Location.town ? Location.town : 'Unknown Town'}
