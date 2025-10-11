@@ -1,7 +1,8 @@
 import React from 'react'
 import './Main.css'
 import CardAuthor from '../CardAuthor/CardAuthor'
-
+import workImg from '../../assets/workProject.webp'
+import PuercoA from '../../assets/puercoArania.jpg'
 const Main = () => {
     return (
         <>
@@ -24,8 +25,8 @@ const Main = () => {
 
                         {/* Columna de imagen */}
                         <div className="col-md-6 text-center">
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"
+                            <img         
+                                src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"                       
                                 alt="Familia Simpson"
                                 className="img-fluid rounded-4 shadow-lg"
                                 style={{ maxWidth: '100%', height: 'auto' }}
@@ -42,8 +43,8 @@ const Main = () => {
 
                         {/* Columna de imagen */}
                         <div className="col-md-5 text-center">
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"
+                            <img                                
+                                src={workImg}
                                 alt="Familia Simpson"
                                 className="img-fluid rounded shadow-sm"
                             />
