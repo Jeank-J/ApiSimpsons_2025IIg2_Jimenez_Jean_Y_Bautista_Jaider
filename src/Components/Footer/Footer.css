@@ -1,0 +1,374 @@
+.footer-container {
+    background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%) !important;
+    color: #FFFFFF !important;
+    margin-top: auto;
+    padding: 2rem 0 1rem 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
+    /* lower than content overlay, but this element hosts bg layer */
+    flex-shrink: 0;
+}
+
+.footer-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    animation: shimmer 2s ease-in-out infinite;
+    z-index: 3;
+}
+
+@keyframes shimmer {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.footer-content {
+    padding: 1rem 0;
+    position: relative;
+    z-index: 2;
+    /* above animated background */
+}
+
+.footer-section {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.footer-title {
+    color: #FFD700 !important;
+    margin-bottom: 1rem !important;
+    font-weight: bold !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.authors-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.author-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    min-width: 250px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.author-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.author-name {
+    color: #FFFFFF !important;
+    font-weight: bold !important;
+    margin-bottom: 0.5rem !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.author-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.author-link {
+    color: #FFD700 !important;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem !important;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+}
+
+.author-link:hover {
+    color: #FFA500 !important;
+    background: rgba(255, 215, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.project-description {
+    color: #E5E7EB !important;
+    margin-bottom: 1rem !important;
+    max-width: 600px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    line-height: 1.6 !important;
+}
+
+.project-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.project-link {
+    color: #FFD700 !important;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem !important;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 215, 0, 0.05);
+}
+
+.project-link:hover {
+    color: #FFA500 !important;
+    border-color: rgba(255, 165, 0, 0.5);
+    background: rgba(255, 165, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.footer-divider {
+    background: linear-gradient(90deg, transparent, #FFD700, transparent) !important;
+    height: 1px !important;
+    margin: 1.5rem 0 !important;
+    border: none !important;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+    color: #FFD700 !important;
+    font-weight: bold !important;
+    margin-bottom: 0.5rem !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.disclaimer {
+    color: #9CA3AF !important;
+    font-size: 0.75rem !important;
+    opacity: 0.8;
+}
+
+.simpsons-text {
+    font-family: 'SimpsonsFont', 'Arial', sans-serif !important;
+}
+
+/* Animated donut background */
+.footer-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+    /* don't block interactions */
+}
+
+.footer-bg .donut {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    /* Vite supports absolute paths from /src when imported, but for CSS url use relative from public root or import. We'll reference via src path at runtime */
+    background: url('/src/assets/donut.svg') no-repeat center/contain;
+    opacity: 0.18;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.25));
+    animation: donutFloat linear infinite;
+}
+
+/* Mouth element */
+.footer-bg .mouth {
+    position: absolute;
+    width: 160px;
+    height: 90px;
+    background: url('/src/assets/mouth.svg') no-repeat center/contain;
+    opacity: 0.16;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+    animation: mouthFloat 26s linear infinite;
+}
+
+.footer-bg .mouth-1 {
+    left: 40%;
+    bottom: -70px;
+    transform-origin: 50% 50%;
+    animation-delay: -6s;
+}
+
+@keyframes mouthFloat {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate3d(-30px, -40%, 0) rotate(-6deg);
+    }
+
+    50% {
+        transform: translate3d(10px, -80%, 0) rotate(4deg);
+    }
+
+    100% {
+        transform: translate3d(0, -150%, 0) rotate(0deg);
+    }
+}
+
+/* Individual seeds: position, delay, speed, size */
+.footer-bg .donut-1 {
+    left: -10%;
+    bottom: -20px;
+    animation-duration: 18s;
+    animation-delay: 0s;
+    transform-origin: 50% 50%;
+}
+
+.footer-bg .donut-2 {
+    left: 10%;
+    bottom: -40px;
+    animation-duration: 20s;
+    animation-delay: -4s;
+    width: 70px;
+    height: 70px;
+}
+
+.footer-bg .donut-3 {
+    left: 30%;
+    bottom: -30px;
+    animation-duration: 22s;
+    animation-delay: -8s;
+    width: 90px;
+    height: 90px;
+}
+
+.footer-bg .donut-4 {
+    left: 50%;
+    bottom: -50px;
+    animation-duration: 19s;
+    animation-delay: -2s;
+    width: 60px;
+    height: 60px;
+}
+
+.footer-bg .donut-5 {
+    left: 70%;
+    bottom: -35px;
+    animation-duration: 24s;
+    animation-delay: -6s;
+    width: 85px;
+    height: 85px;
+}
+
+.footer-bg .donut-6 {
+    left: 85%;
+    bottom: -25px;
+    animation-duration: 21s;
+    animation-delay: -10s;
+    width: 55px;
+    height: 55px;
+}
+
+.footer-bg .donut-7 {
+    left: 95%;
+    bottom: -45px;
+    animation-duration: 23s;
+    animation-delay: -12s;
+    width: 75px;
+    height: 75px;
+}
+
+.footer-bg .donut-8 {
+    left: -5%;
+    bottom: -60px;
+    animation-duration: 26s;
+    animation-delay: -14s;
+    width: 100px;
+    height: 100px;
+}
+
+@keyframes donutFloat {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate3d(20px, -70%, 0) rotate(180deg);
+    }
+
+    100% {
+        transform: translate3d(0, -140%, 0) rotate(360deg);
+    }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .footer-bg .donut {
+        animation: none;
+        opacity: 0.1;
+    }
+}
+
+@media (max-width: 768px) {
+    .authors-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .author-card {
+        min-width: 200px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .project-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer-container {
+        padding: 1.5rem 0 1rem 0;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .author-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .project-description {
+        font-size: 0.85rem !important;
+        padding: 0 1rem;
+    }
+
+    .footer-bg .donut {
+        opacity: 0.14;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    }
+}
+
+

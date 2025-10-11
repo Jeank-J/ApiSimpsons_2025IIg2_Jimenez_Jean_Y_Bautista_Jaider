@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true">
+  <!-- Donut base (dough) ring -->
+  <path fill="#E9B873" fill-rule="evenodd" d="M50 10a40 40 0 1 1 0 80a40 40 0 1 1 0-80m0 18a22 22 0 1 0 0 44a22 22 0 1 0 0-44z"/>
+  <!-- Frosting ring -->
+  <path fill="#FF78B3" fill-rule="evenodd" d="M50 16a34 34 0 1 1 0 68a34 34 0 1 1 0-68m0 20a14 14 0 1 0 0 28a14 14 0 1 0 0-28z"/>
+  <!-- Sprinkles -->
+  <g opacity="0.9">
+    <rect x="28" y="32" width="3" height="9" rx="1" fill="#FFFFFF" transform="rotate(-20 29.5 36.5)"/>
+    <rect x="64" y="30" width="3" height="9" rx="1" fill="#7BDFF2" transform="rotate(25 65.5 34.5)"/>
+    <rect x="72" y="50" width="3" height="9" rx="1" fill="#F7FF00" transform="rotate(-10 73.5 54.5)"/>
+    <rect x="56" y="66" width="3" height="9" rx="1" fill="#B28DFF" transform="rotate(35 57.5 70.5)"/>
+    <rect x="36" y="66" width="3" height="9" rx="1" fill="#FF9F1C" transform="rotate(-40 37.5 70.5)"/>
+    <rect x="22" y="52" width="3" height="9" rx="1" fill="#2EC4B6" transform="rotate(15 23.5 56.5)"/>
+  </g>
+  <!-- Small shading -->
+  <ellipse cx="60" cy="42" rx="20" ry="10" fill="#FFFFFF" opacity="0.12"/>
+</svg>
