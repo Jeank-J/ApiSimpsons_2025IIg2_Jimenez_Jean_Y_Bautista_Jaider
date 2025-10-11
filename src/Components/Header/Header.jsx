@@ -40,7 +40,7 @@ function DrawerAppBar(props) {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }} className="simpsons-text">
-                MUI
+                The Simpsons
             </Typography>
             <Divider />
             <List>
@@ -85,7 +85,12 @@ function DrawerAppBar(props) {
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                        sx={{
+                            flexGrow: 1,
+                            display: 'flex',
+                            justifyContent: { xs: 'center', sm: 'flex-start' },
+                            alignItems: 'center',
+                        }}
                     >
                         <img src={tituloImg} alt="Logo de AppSimpsons" className="logo" />
 
@@ -105,7 +110,9 @@ function DrawerAppBar(props) {
                 </Toolbar>
             </AppBar>
             <nav>
+
                 <Drawer
+
                     container={container}
                     variant="temporary"
                     open={mobileOpen}
@@ -124,8 +131,11 @@ function DrawerAppBar(props) {
                     }}
                 >
                     {drawer}
+
                 </Drawer>
+
             </nav>
+
         </Box>
     );
 }

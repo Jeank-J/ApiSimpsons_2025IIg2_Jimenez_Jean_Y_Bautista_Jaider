@@ -6,7 +6,6 @@
     box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
     position: relative;
     z-index: 1;
-    /* lower than content overlay, but this element hosts bg layer */
     flex-shrink: 0;
 }
 
@@ -38,7 +37,6 @@
     padding: 1rem 0;
     position: relative;
     z-index: 2;
-    /* above animated background */
 }
 
 .footer-section {
@@ -175,156 +173,14 @@
     font-family: 'SimpsonsFont', 'Arial', sans-serif !important;
 }
 
-/* Animated donut background */
 .footer-bg {
     position: absolute;
     inset: 0;
     overflow: hidden;
     z-index: 1;
     pointer-events: none;
-    /* don't block interactions */
 }
 
-.footer-bg .donut {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    /* Vite supports absolute paths from /src when imported, but for CSS url use relative from public root or import. We'll reference via src path at runtime */
-    background: url('/src/assets/donut.svg') no-repeat center/contain;
-    opacity: 0.18;
-    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.25));
-    animation: donutFloat linear infinite;
-}
-
-/* Mouth element */
-.footer-bg .mouth {
-    position: absolute;
-    width: 160px;
-    height: 90px;
-    background: url('/src/assets/mouth.svg') no-repeat center/contain;
-    opacity: 0.16;
-    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
-    animation: mouthFloat 26s linear infinite;
-}
-
-.footer-bg .mouth-1 {
-    left: 40%;
-    bottom: -70px;
-    transform-origin: 50% 50%;
-    animation-delay: -6s;
-}
-
-@keyframes mouthFloat {
-    0% {
-        transform: translate3d(0, 0, 0) rotate(0deg);
-    }
-
-    25% {
-        transform: translate3d(-30px, -40%, 0) rotate(-6deg);
-    }
-
-    50% {
-        transform: translate3d(10px, -80%, 0) rotate(4deg);
-    }
-
-    100% {
-        transform: translate3d(0, -150%, 0) rotate(0deg);
-    }
-}
-
-/* Individual seeds: position, delay, speed, size */
-.footer-bg .donut-1 {
-    left: -10%;
-    bottom: -20px;
-    animation-duration: 18s;
-    animation-delay: 0s;
-    transform-origin: 50% 50%;
-}
-
-.footer-bg .donut-2 {
-    left: 10%;
-    bottom: -40px;
-    animation-duration: 20s;
-    animation-delay: -4s;
-    width: 70px;
-    height: 70px;
-}
-
-.footer-bg .donut-3 {
-    left: 30%;
-    bottom: -30px;
-    animation-duration: 22s;
-    animation-delay: -8s;
-    width: 90px;
-    height: 90px;
-}
-
-.footer-bg .donut-4 {
-    left: 50%;
-    bottom: -50px;
-    animation-duration: 19s;
-    animation-delay: -2s;
-    width: 60px;
-    height: 60px;
-}
-
-.footer-bg .donut-5 {
-    left: 70%;
-    bottom: -35px;
-    animation-duration: 24s;
-    animation-delay: -6s;
-    width: 85px;
-    height: 85px;
-}
-
-.footer-bg .donut-6 {
-    left: 85%;
-    bottom: -25px;
-    animation-duration: 21s;
-    animation-delay: -10s;
-    width: 55px;
-    height: 55px;
-}
-
-.footer-bg .donut-7 {
-    left: 95%;
-    bottom: -45px;
-    animation-duration: 23s;
-    animation-delay: -12s;
-    width: 75px;
-    height: 75px;
-}
-
-.footer-bg .donut-8 {
-    left: -5%;
-    bottom: -60px;
-    animation-duration: 26s;
-    animation-delay: -14s;
-    width: 100px;
-    height: 100px;
-}
-
-@keyframes donutFloat {
-    0% {
-        transform: translate3d(0, 0, 0) rotate(0deg);
-    }
-
-    50% {
-        transform: translate3d(20px, -70%, 0) rotate(180deg);
-    }
-
-    100% {
-        transform: translate3d(0, -140%, 0) rotate(360deg);
-    }
-}
-
-/* Respect users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .footer-bg .donut {
-        animation: none;
-        opacity: 0.1;
-    }
-}
 
 @media (max-width: 768px) {
     .authors-grid {
@@ -364,11 +220,7 @@
         font-size: 0.85rem !important;
         padding: 0 1rem;
     }
-
-    .footer-bg .donut {
-        opacity: 0.14;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    }
 }
+
 
 

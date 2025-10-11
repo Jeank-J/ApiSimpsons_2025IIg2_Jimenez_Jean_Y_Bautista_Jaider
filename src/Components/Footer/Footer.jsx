@@ -8,13 +8,6 @@ const Footer = () => {
 
     return (
         <Box component="footer" className="footer-container">
-            {/* Animated background layer */}
-            <Box aria-hidden="true" className="footer-bg">
-                {/* We duplicate donuts for a parallax-like effect */}
-                {Array.from({ length: 8 }).map((_, i) => (
-                    <span key={i} className={`donut donut-${i + 1}`} />
-                ))}
-            </Box>
             <Container maxWidth="lg">
                 <Box className="footer-content">
                     {/* Authors Section */}
@@ -79,7 +72,7 @@ const Footer = () => {
                         </Box>
                     </Box>
 
-                    <Divider className="footer-divider" />
+
 
                     {/* Copyright Section */}
                     <Box className="footer-bottom">
