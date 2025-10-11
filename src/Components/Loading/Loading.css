@@ -35,6 +35,7 @@
 .loading-ring {
     position: relative;
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 12px;

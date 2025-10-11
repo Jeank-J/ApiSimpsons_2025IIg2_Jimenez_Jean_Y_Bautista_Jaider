@@ -3,40 +3,62 @@ import { useEffect, useState } from "react";
 import CardsLocation from '../../Components/CardsLocation/CardsLocation';
 import Loading from '../../Components/Loading/Loading';
 import './LocationDetails.css'
+const base = "https://cdn.thesimpsonsapi.com/500";
+
 const LocationDetails = () => {
     const [locations, setLocations] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(true);
+    const [totalLocations, setTotalLocations] = useState(0);
+    const [preloadedImg, setPreloadedImg] = useState(null);
+    const preloadRandomImage = async () => {
+        try {
+            setPreloadedImg(null);
+            const max = totalLocations > 0 ? totalLocations : 1;
+            const random = Math.floor(Math.random() * max) + 1;
+            const res = await fetch(`https://thesimpsonsapi.com/api/locations/${random}`);
+            const data = await res.json();
+            const img = new Image();
+            img.src = `${base}${data.image_path}`;
+            await new Promise(resolve => {
+                img.onload = resolve;
+                img.onerror = resolve;
+            });
+            setPreloadedImg(img.src);
+        } catch (err) {
+            console.error("Error precargando imagen:", err);
+        }
+    };
+
 
     useEffect(() => {
-        setLoading(true);
-        const delay = 1000;
-        const startTime = Date.now();
-        fetch(`https://thesimpsonsapi.com/api/locations?page=${page}`)
-            .then(res => res.json())
-            .then(data => {
+        const fetchData = async () => {
+            setLoading(true);
+            await preloadRandomImage();
+
+            const delay = 600;
+            const startTime = Date.now();
+            try {
+                const res = await fetch(`https://thesimpsonsapi.com/api/locations?page=${page}`);
+                const data = await res.json();
                 setLocations(data.results);
                 setTotalPages(data.pages);
+                setTotalLocations(data.count);
                 const timeElapsed = Date.now() - startTime;
-                if (timeElapsed < delay) {
-                    setTimeout(() => setLoading(false), delay - timeElapsed);
-                } else {
-                    setLoading(false);
-                }
-
-            })
-            .catch((err) => {
+                const remaining = Math.max(0, delay - timeElapsed);
+                setTimeout(() => setLoading(false), remaining);
+            } catch (err) {
                 console.error("Fetch error:", err);
                 setLoading(false);
-            });
+            }
+        };
 
-        // .finally(() => setLoading(false));
+        fetchData();
     }, [page]);
 
-    if (loading) {
-        return <Loading />;
-    }
+
+    if (loading) return <Loading preloadedImg={preloadedImg} />;
 
     return (
 
@@ -48,8 +70,6 @@ const LocationDetails = () => {
 
             <div className="locations-styles">
                 {locations.map(lo => (<CardsLocation key={lo.id} Location={lo}
-
-
                 />))}
 
             </div>
