@@ -1,40 +1,46 @@
-.introduccion{
+.introduccion {
     width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color:aliceblue;
+    background-color: aliceblue;
     gap: 10px;
     padding: 10px;
     border: solid 2px #000;
 }
 
-.tituloI, .descripcion{
+.tituloI,
+.descripcion {
     text-align: center;
     border: solid 2px #000;
 }
-.containerIMG{
+
+.containerIMG {
     border: solid 2px #000;
 }
 
-@media (min-width: 760px){
-    .introduccion{
+
+@media (min-width: 760px) {
+    .introduccion {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: 
-        "tituloI foto"
-        "descripcion foto"
+        grid-template-areas:
+            "tituloI foto"
+            "descripcion foto"
         ;
-    }   
-    .containerIMG{
+    }
+
+    .containerIMG {
         grid-area: foto;
     }
-    .descripcion{
+
+    .descripcion {
         grid-area: descripcion;
     }
-    .tituloI{
+
+    .tituloI {
         grid-area: tituloI;
     }
-    
+
 }

@@ -169,7 +169,12 @@ const LocationDetail = () => {
                             backgroundColor: '#FFF3C0',
                             border: '1px solid rgba(209, 178, 113, 0.25)',
                             borderRadius: '15px',
-                            marginBottom: '25px'
+                            marginBottom: '25px',
+                            '&:hover': {
+                                boxShadow: '0 8px 20px rgba(255, 215, 0, 0.3)',
+                                transform: 'translateY(-3px)',
+                                borderColor: 'rgba(209, 178, 113, 0.5)'
+                            }
                         }}>
                             <Typography
                                 variant="h5"
@@ -177,7 +182,7 @@ const LocationDetail = () => {
                                 sx={{
                                     fontFamily: 'SimpsonsFont, Arial, sans-serif',
                                     color: '#0f172a',
-                                    marginBottom: '15px'
+
                                 }}
                             >
                                 Descripción
@@ -187,7 +192,8 @@ const LocationDetail = () => {
                                 sx={{
                                     lineHeight: 1.8,
                                     fontSize: '16px',
-                                    color: '#475569'
+                                    color: '#475569',
+                                    fontFamily: 'Comic Sans MS, Trebuchet MS, Arial, sans-serif'
                                 }}
                             >
                                 {location.description || 'No description available'}
@@ -198,13 +204,18 @@ const LocationDetail = () => {
                             <Paper elevation={2} sx={{
                                 padding: '20px',
                                 backgroundColor: '#FFF7D6',
-                                borderRadius: '15px'
+                                borderRadius: '15px',
+                                '&:hover': {
+                                    boxShadow: '0 8px 20px rgba(255, 215, 0, 0.3)',
+                                    transform: 'translateY(-3px)',
+                                    borderColor: 'rgba(209, 178, 113, 0.5)'
+                                }
                             }}>
                                 <Typography
                                     variant="h5"
                                     gutterBottom
                                     sx={{
-                                        fontFamily: 'SimpsonsFont, Arial, sans-serif',
+                                        fontFamily: 'Comic Sans MS, Trebuchet MS, Arial, sans-serif',
                                         color: '#0f172a',
                                         marginBottom: '15px'
                                     }}
@@ -213,14 +224,25 @@ const LocationDetail = () => {
                                 </Typography>
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
                                     <CalendarToday sx={{ color: '#D1B271' }} />
-                                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                                    <Typography variant="body1" sx={{
+                                        fontWeight: 'bold',
+                                        fontFamily: 'Comic Sans MS, Trebuchet MS, Arial, sans-serif'
+                                    }}>
                                         {location.first_appearance_ep.name}
                                     </Typography>
                                 </Box>
-                                <Typography variant="body2" sx={{ color: '#475569', mb: 1 }}>
+                                <Typography variant="body2" sx={{
+                                    color: '#475569',
+                                    mb: 1,
+                                    fontFamily: 'Comic Sans MS, Trebuchet MS, Arial, sans-serif'
+                                }}>
                                     Temporada {location.first_appearance_ep.season}, Episodio {location.first_appearance_ep.episode_number}
                                 </Typography>
-                                <Typography variant="body2" sx={{ color: '#475569' }}>
+                                <Typography variant="body2" sx={{
+                                    color: '#475569',
+                                    fontFamily: 'Comic Sans MS, Trebuchet MS, Arial, sans-serif',
+                                    lineHeight: 1.6
+                                }}>
                                     {location.first_appearance_ep.synopsis}
                                 </Typography>
                             </Paper>

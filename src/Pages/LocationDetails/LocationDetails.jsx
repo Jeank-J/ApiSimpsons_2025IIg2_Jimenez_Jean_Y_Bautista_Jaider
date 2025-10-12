@@ -20,10 +20,7 @@ const LocationDetails = () => {
         try {
             setPreloadedImg(null);
             const cached = Number(localStorage.getItem('locations.count')) || 0;
-            // Fallback razonable si no tenemos el count aún
             const max = cached > 0 ? cached : 500;
-
-            // Intentar hasta 3 veces obtener una imagen válida
             for (let attempt = 0; attempt < 3; attempt++) {
                 const random = Math.floor(Math.random() * max) + 1;
                 try {

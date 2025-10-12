@@ -2,8 +2,16 @@ import React from 'react'
 import './Main.css'
 import CardAuthor from '../CardAuthor/CardAuthor'
 import workImg from '../../assets/workProject.webp'
+import { useNavigate } from 'react-router-dom';
+
 import PuercoA from '../../assets/puercoArania.jpg'
+
+
 const Main = () => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(`/Characters`);
+    };
     return (
         <>
             <section className="py-5 bg-warning-subtle text-dark">
@@ -15,18 +23,20 @@ const Main = () => {
                                 Bienvenido al mundo de Los Simpson
                             </h2>
                             <p className="lead">
-                                Explora los personajes más queridos, los lugares emblemáticos de Springfield
-                                y revive los episodios más icónicos de esta legendaria serie animada.
+                                Explora los personajes mas queridos, los lugares emblematicos de Springfield
+                                y revive los episodios mas iconicos de esta legendaria serie animada.
                             </p>
-                            <button className="btn btn-primary mt-3 shadow-sm">
+                            <button className="btn btn-primary mt-3 shadow-sm"
+                                onClick={handleClick}
+                            >
                                 Explorar personajes
                             </button>
                         </div>
 
                         {/* Columna de imagen */}
                         <div className="col-md-6 text-center">
-                            <img         
-                                src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"                       
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"
                                 alt="Familia Simpson"
                                 className="img-fluid rounded-4 shadow-lg"
                                 style={{ maxWidth: '100%', height: 'auto' }}
@@ -43,7 +53,7 @@ const Main = () => {
 
                         {/* Columna de imagen */}
                         <div className="col-md-5 text-center">
-                            <img                                
+                            <img
                                 src={workImg}
                                 alt="Familia Simpson"
                                 className="img-fluid rounded shadow-sm"
@@ -56,16 +66,16 @@ const Main = () => {
                                 Sobre el proyecto
                             </h3>
                             <p className="lead">
-                                <strong>AppSimpsons</strong> es una aplicación desarrollada como
-                                demostración práctica del consumo de una API REST, la generación
-                                de vistas dinámicas y la navegación estructurada mediante React,
+                                <strong>AppSimpsons</strong> es una aplicacion desarrollada como
+                                demostracion practica del consumo de una API REST, la generacion
+                                de vistas dinamicas y la navegacion estructurada mediante React,
                                 aprovechando la flexibilidad de componentes reutilizables y la
                                 potencia de Bootstrap para el diseño responsivo.
                             </p>
                             <p>
-                                Este proyecto busca mostrar cómo integrar datos reales con una
-                                interfaz moderna y amigable, centrada en la familia más icónica
-                                de la televisión: <em>Los Simpson</em>.
+                                Este proyecto busca mostrar como integrar datos reales con una
+                                interfaz moderna y amigable, centrada en la familia mas iconica
+                                de la television: <em>Los Simpson</em>.
                             </p>
                         </div>
 
@@ -75,14 +85,14 @@ const Main = () => {
 
             <section className="py-5 bg-warning-subtle text-dark">
                 <div className="container text-center">
-                    <h3 className="fw-bold text-primary mb-4">¿Qué puedes hacer en AppSimpsons?</h3>
+                    <h3 className="fw-bold text-primary mb-4">¿Que puedes hacer en AppSimpsons?</h3>
                     <div className="row">
                         <div className="col-md-4 mb-4">
                             <div className="card h-100 border-0 shadow-sm">
                                 <div className="card-body">
                                     <i className="bi bi-people display-4 text-warning"></i>
                                     <h5 className="mt-3">Explorar Personajes</h5>
-                                    <p>Descubre información sobre tus personajes favoritos con datos obtenidos directamente desde la API.</p>
+                                    <p>Descubre informacion sobre tus personajes favoritos con datos obtenidos directamente desde la API.</p>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +101,7 @@ const Main = () => {
                                 <div className="card-body">
                                     <i className="bi bi-geo-alt display-4 text-warning"></i>
                                     <h5 className="mt-3">Conocer Lugares</h5>
-                                    <p>Visita virtualmente los sitios más emblemáticos de Springfield y su historia dentro de la serie.</p>
+                                    <p>Visita virtualmente los sitios mas emblematicos de Springfield y su historia dentro de la serie.</p>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +110,7 @@ const Main = () => {
                                 <div className="card-body">
                                     <i className="bi bi-tv display-4 text-warning"></i>
                                     <h5 className="mt-3">Revivir Episodios</h5>
-                                    <p>Consulta la lista de episodios, detalles de emisión y curiosidades de cada temporada.</p>
+                                    <p>Consulta la lista de episodios, detalles de emision y curiosidades de cada temporada.</p>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +121,9 @@ const Main = () => {
 
             <section className="container py-5">
                 <h3 className="text-center mb-4 text-primary fw-bold">Autores del Proyecto</h3>
-                <div className="row justify-content-center">
+                <div className="row justify-content-center"
+                    style={{ gap: '30px' }}
+                >
                     <CardAuthor />
                     <CardAuthor />
                 </div>
