@@ -7,7 +7,13 @@ import Button from '@mui/material/Button';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
 
+import { useNavigate } from 'react-router-dom';
+
+
 export default function CardCharacter({ character }) {
+
+  const navigate = useNavigate();
+
   return (
     <Card
       sx={{
@@ -89,16 +95,20 @@ export default function CardCharacter({ character }) {
             borderBottomLeftRadius: 0,
             paddingRight: '15px',
             textTransform: 'none',
-            '&:hover': {
+            '&:hover': {              
+              backgroundColor: '#ffdc15ff', // tono más oscuro
               transform: 'translateX(3px)',
             },
           }}
+          onClick={
+            ()=> navigate(`/Characters/${character.id}`)
+          }
         >
           <i
             className="bi bi-arrow-return-right"
             style={{ marginRight: '10px' }}
           ></i>
-          Ver más
+          Ver máss
         </Button>
       </CardActions>
     </Card>

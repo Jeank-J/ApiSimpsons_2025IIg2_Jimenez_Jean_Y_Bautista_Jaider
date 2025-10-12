@@ -7,6 +7,7 @@ import Main from './Components/Main/Main'
 import Footer from './Components/Footer/Footer'
 
 import CharacterDetails from './Pages/CharacterDetails/CharacterDetails';
+import CharacterId from './Pages/CharacterId/CharacterId';
 import EpisodeDetails from './Pages/EpisodeDetails/EpisodeDetails';
 import LocationDetails from './Pages/LocationDetails/LocationDetails';
 import LocationDetail from './Pages/LocationDetail/LocationDetail';
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/404" element={<NotFound />} />
                     <Route path="*" element={<NotFound />} />
                     <Route path="/Characters" element={<CharacterDetails />} />
+                    <Route path="/Characters/:id" element={<CharacterId />} />
                     <Route path="/Episodes" element={<EpisodeDetails />} />
                     <Route path="/Locations" element={<LocationDetails />} />
                     <Route path="/location/:id" element={<LocationDetail />} />

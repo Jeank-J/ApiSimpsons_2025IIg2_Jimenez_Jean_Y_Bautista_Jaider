@@ -36,44 +36,45 @@ const CharacterDetails = () => {
                     </p>                    
                 </div>
             </div>
+            <div className='container'>
+                {loading ? (
+                        <p>Cargando...</p>
+                    ) : (
+                        <div>
+                            <ul className="characters-list">
+                                {
+                                    characters.map(character => (
+                                        <CardCharacter key={character.id} character={character} />
+                                    ))
+                                }
+                            </ul>
 
-            {loading ? (
-                    <p>Cargando...</p>
-                ) : (
-                    <div>
-                        <ul className="characters-list">
-                            {
-                                characters.map(character => (
-                                    <CardCharacter key={character.id} character={character} />
-                                ))
-                            }
-                        </ul>
 
+                            <div className="d-flex justify-content-center align-items-center my-5">
+                                <button
+                                    className="btn btn-primary mx-2"
+                                    onClick={() => setPage(prev => Math.max(prev - 1, 1))}
+                                    disabled={page === 1}
+                                >
+                                    Anterior
+                                </button>
 
-                        <div className="d-flex justify-content-center align-items-center my-5">
-                            <button
-                                className="btn btn-primary mx-2"
-                                onClick={() => setPage(prev => Math.max(prev - 1, 1))}
-                                disabled={page === 1}
-                            >
-                                Anterior
-                            </button>
+                                <span className="mx-3 fs-5">
+                                    Pagina {page} de {totalPages}
+                                </span>
 
-                            <span className="mx-3 fs-5">
-                                Pagina {page} de {totalPages}
-                            </span>
+                                <button
+                                    className="btn btn-primary mx-2 d-flex"
+                                    onClick={() => setPage(prev => Math.min(prev + 1, totalPages))}
+                                    disabled={page === totalPages}
+                                >
+                                    Siguiente
+                                </button>
+                            </div>
 
-                            <button
-                                className="btn btn-primary mx-2 d-flex"
-                                onClick={() => setPage(prev => Math.min(prev + 1, totalPages))}
-                                disabled={page === totalPages}
-                            >
-                                Siguiente
-                            </button>
                         </div>
-
-                    </div>
-                )}
+                    )}
+            </div>
         </>
     )
 }
