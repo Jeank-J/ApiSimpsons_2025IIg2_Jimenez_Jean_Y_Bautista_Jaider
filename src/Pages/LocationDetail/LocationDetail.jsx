@@ -143,7 +143,7 @@ const LocationDetail = () => {
                                 label={location.town || 'Unknown Town'}
                                 color="primary"
                                 sx={{
-                                    backgroundColor: '#70D1FE',
+                                    backgroundColor: '#25acebff',
                                     color: '#ffffff',
                                     fontWeight: 'bold',
                                     fontSize: '14px'
