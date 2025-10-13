@@ -5,33 +5,43 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import { useNavigate } from 'react-router-dom';
+import MouseIcon from '@mui/icons-material/Mouse';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import './CardsLocation.css'
 import noImg from '../../assets/NoImg.jpg'
 
 const ActionAreaCard = ({ Location }) => {
     const navigate = useNavigate();
+    const isMobile = useMediaQuery('(max-width:600px)');
+    const [isHovered, setIsHovered] = React.useState(false);
 
     const handleClick = () => {
         navigate(`/location/${Location.id}`);
     };
 
     return (
-        <Card sx={{
-            maxWidth: 345,
-            borderRadius: '15px',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-            transition: 'transform 0.3s ease-in-out',
-            '&:hover': {
-                transform: 'scale(1.05)',
-                border: '2px solid #D1B271',
-                boxShadow: '0 0 15px rgba(209, 178, 113, 0.8)'
-            },
-            backgroundColor: '#F5F5DC'
-        }}>
+        <Card
+
+            onMouseEnter={() => !isMobile && setIsHovered(true)}
+            onMouseLeave={() => !isMobile && setIsHovered(false)}
+
+            sx={{
+                maxWidth: 345,
+                borderRadius: '15px',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                transition: 'transform 0.3s ease-in-out',
+                '&:hover': {
+                    transform: 'scale(1.05)',
+                    border: '2px solid #D1B271',
+                    boxShadow: '0 0 15px rgba(209, 178, 113, 0.8)'
+                },
+                backgroundColor: '#F5F5DC'
+            }}>
             <CardActionArea
                 onClick={handleClick}
                 disableRipple
                 disableTouchRipple
+
                 sx={{
                     backgroundColor: 'transparent',
                     '&:hover': { backgroundColor: 'transparent' },
@@ -69,7 +79,25 @@ const ActionAreaCard = ({ Location }) => {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-        </Card>
+            <Typography
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#D1B271',
+                    fontFamily: 'monospace',
+                    fontWeight: 600,
+                }}
+            >
+                {(isHovered || isMobile) && (
+                    <>
+                        Click me <MouseIcon sx={{ fontSize: 18, ml: 0.5 }} />
+                    </>
+                )}
+            </Typography>
+
+
+        </Card >
     );
 }
 

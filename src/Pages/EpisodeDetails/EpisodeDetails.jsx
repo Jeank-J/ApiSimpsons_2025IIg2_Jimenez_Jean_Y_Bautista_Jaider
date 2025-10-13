@@ -27,7 +27,6 @@ const EpisodeDetails = () => {
         try {
             setPreloadedImg(null);
             const cached = Number(localStorage.getItem('episodes.count')) || 0;
-            console.log("cached episodes count:", cached);
             const max = cached > 0 ? cached : 700;
             for (let attempt = 0; attempt < 3; attempt++) {
                 const random = Math.floor(Math.random() * max) + 1;
