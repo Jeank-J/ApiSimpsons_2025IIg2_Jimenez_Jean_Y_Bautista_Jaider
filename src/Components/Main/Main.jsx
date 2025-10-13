@@ -9,9 +9,7 @@ import PuercoA from '../../assets/puercoArania.jpg'
 
 const Main = () => {
     const navigate = useNavigate();
-    const handleClick = () => {
-        navigate(`/Characters`);
-    };
+    const handleClick = () => { navigate(`/Characters`); };
     return (
         <>
             <section className="py-5 bg-warning-subtle text-dark">
@@ -47,7 +45,7 @@ const Main = () => {
             </section>
 
 
-            <section className="py-5 bg-light text-dark" id="about">
+            <section className="py-5 bg- text-dark " id="about">
                 <div className="container">
                     <div className="row align-items-center">
 
@@ -56,12 +54,12 @@ const Main = () => {
                             <img
                                 src={workImg}
                                 alt="Familia Simpson"
-                                className="img-fluid rounded shadow-sm"
+                                className="img-fluid rounded-4 shadow-lg"
                             />
                         </div>
 
                         {/* Columna de texto */}
-                        <div className="col-md-7">
+                        <div className="col-md-7" >
                             <h3 className="fw-bold mb-4 text-primary border-bottom pb-2">
                                 Sobre el proyecto
                             </h3>
