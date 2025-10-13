@@ -27,22 +27,12 @@ const CharacterDetails = () => {
 
     return (
         <>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
             <section className="characters-section">
-                                
+
                 <div className="container my-5 text-center simpsons-header">
                     <h1 className="simpsons-title">
                         Personajes de Los Simpson
                     </h1>
-=======
-=======
->>>>>>> Stashed changes
-            <div className="container my-5 text-center">
-                <h1 className="fw-bold mb-3 text-warning display-5">
-                    Personajes de Los Simpson
-                </h1>
->>>>>>> Stashed changes
 
                     <p className="simpsons-description">
                         Explora la <span className="highlight">lista completa</span> de personajes icónicos
@@ -56,7 +46,6 @@ const CharacterDetails = () => {
 
 
 
-<<<<<<< Updated upstream
                 <div className="container">
                     {loading ? (
                         <p className="text-center fs-5">Cargando...</p>
@@ -67,11 +56,6 @@ const CharacterDetails = () => {
                                     <CardCharacter key={character.id} character={character} />
                                 ))}
                             </ul>
-=======
-                            <span className="mx-3 fs-5 fw-semibold text-secondary">
-                                Pagina {page} de {totalPages}
-                            </span>
->>>>>>> Stashed changes
 
                             <div className="d-flex justify-content-center align-items-center my-5">
                                 <button
