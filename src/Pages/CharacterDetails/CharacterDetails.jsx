@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import CardCharacter from '../../Components/CardCharacter/CardCharacter'
+import Loading from '../../Components/Loading/Loading';
 
 import './CharacterDetails.css';
 const CharacterDetails = () => {
@@ -28,7 +29,7 @@ const CharacterDetails = () => {
     return (
         <>
             <section className="characters-section">
-
+                                
                 <div className="container my-5 text-center simpsons-header">
                     <h1 className="simpsons-title">
                         Personajes de Los Simpson
@@ -43,7 +44,6 @@ const CharacterDetails = () => {
 
                     <hr className="simpsons-divider" />
                 </div>
-
 
 
                 <div className="container">
@@ -66,8 +66,8 @@ const CharacterDetails = () => {
                                     Anterior
                                 </button>
 
-                                <span className="mx-3 fs-5 fw-semibold text-secondary">
-                                    Página {page} de {totalPages}
+                                <span className="mx-3 fs-5 fw-semibold ">
+                                    Pagina {page} de {totalPages}
                                 </span>
 
                                 <button
