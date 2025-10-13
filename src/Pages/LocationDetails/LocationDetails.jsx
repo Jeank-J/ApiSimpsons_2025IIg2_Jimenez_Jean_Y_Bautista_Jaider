@@ -20,7 +20,8 @@ const LocationDetails = () => {
         try {
             setPreloadedImg(null);
             const cached = Number(localStorage.getItem('locations.count')) || 0;
-            const max = cached > 0 ? cached : 500;
+            console.log("cached locations count:", cached);
+            const max = cached > 0 ? cached : 400;
             for (let attempt = 0; attempt < 3; attempt++) {
                 const random = Math.floor(Math.random() * max) + 1;
                 try {
@@ -102,7 +103,7 @@ const LocationDetails = () => {
                 />))}
 
             </div>
-            <nav className="pagination" aria-label="Paginación de ubicaciones" >
+            <nav className="pagination" aria-label="Paginacion de ubicaciones" >
                 <button className="page-btn" onClick={() => setPage(prev => Math.max(prev - 1, 1))} disabled={page === 1}>
                     Anterior
                 </button>
