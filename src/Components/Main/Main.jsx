@@ -14,8 +14,8 @@ const Main = () => {
         <>
             <section className="py-5 bg-warning-subtle text-dark">
                 <div className="container">
+
                     <div className="row align-items-center">
-                        {/* Columna de texto */}
                         <div className="col-md-6 mb-4 mb-md-0">
                             <h2 className="fw-bold text-primary mb-3">
                                 Bienvenido al mundo de Los Simpson
@@ -24,19 +24,18 @@ const Main = () => {
                                 Explora los personajes mas queridos, los lugares emblematicos de Springfield
                                 y revive los episodios mas iconicos de esta legendaria serie animada.
                             </p>
-                            <button className="btn btn-primary mt-3 shadow-sm"
+                            <button className="btn btn-primary btn-modern mt-3 shadow-sm"
                                 onClick={handleClick}
                             >
                                 Explorar personajes
                             </button>
                         </div>
 
-                        {/* Columna de imagen */}
-                        <div className="col-md-6 text-center">
+                        <div className="col-md-6 text-center my-4">
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"
                                 alt="Familia Simpson"
-                                className="img-fluid rounded-4 shadow-lg"
+                                className="img-fluid rounded-4 deep-shadow"
                                 style={{ maxWidth: '100%', height: 'auto' }}
                             />
                         </div>
@@ -49,31 +48,34 @@ const Main = () => {
                 <div className="container">
                     <div className="row align-items-center">
 
-                        {/* Columna de imagen */}
-                        <div className="col-md-5 text-center">
+                        <div className="col-md-5 text-center p-3 my-2 order-2 order-md-1">
                             <img
                                 src={workImg}
                                 alt="Familia Simpson"
-                                className="img-fluid rounded-4 shadow-lg"
+                                className="img-fluid rounded-4 deep-shadow"
+                                style={{ maxWidth: '100%', height: 'auto' }}
                             />
                         </div>
 
-                        {/* Columna de texto */}
                         <div className="col-md-7" >
                             <h3 className="fw-bold mb-4 text-primary border-bottom pb-2">
                                 Sobre el proyecto
                             </h3>
                             <p className="lead">
                                 <strong>AppSimpsons</strong> es una aplicacion desarrollada como
-                                demostracion practica del consumo de una API REST, la generacion
-                                de vistas dinamicas y la navegacion estructurada mediante React,
-                                aprovechando la flexibilidad de componentes reutilizables y la
-                                potencia de Bootstrap para el diseño responsivo.
+                                demostración práctica del consumo de una
+                                <span className="highlight">API REST</span>, la generación
+                                de <span className="highlight">vistas dinamicas</span> y la
+                                <span className="highlight">navegación estructurada</span> mediante
+                                <span className="highlight">React</span>, aprovechando la flexibilidad de
+                                <span className="highlight">componentes reutilizables</span> y la
+                                potencia de <span className="highlight">Bootstrap</span> para el
+                                diseño <span className="highlight">responsivo</span>.
                             </p>
-                            <p>
-                                Este proyecto busca mostrar como integrar datos reales con una
+                            <p className="lead">
+                                Este proyecto busca mostrar como integrar <span className="highlight">datos reales</span> con una
                                 interfaz moderna y amigable, centrada en la familia mas iconica
-                                de la television: <em>Los Simpson</em>.
+                                de la television: <span className="highlight"> <em>Los Simpson</em> </span>.
                             </p>
                         </div>
 

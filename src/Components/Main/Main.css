@@ -19,6 +19,46 @@
     border: solid 2px #000;
 }
 
+.deep-shadow {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+.deep-shadow:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+  transform: translateY(-4px);
+}
+
+.btn-modern {
+  background: linear-gradient(135deg, #FDD835, #FF9800);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-modern:hover {
+  background: linear-gradient(135deg, #0056d2, #003a8c);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.45);
+}
+
+.btn-modern:active {
+  transform: translateY(0);
+}
+
+.highlight {
+  color: #bda83e; 
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: color 0.3s ease;
+}
+
+.highlight:hover {
+  color: #FFEB3B; 
+}
+
 
 @media (min-width: 760px) {
     .introduccion {

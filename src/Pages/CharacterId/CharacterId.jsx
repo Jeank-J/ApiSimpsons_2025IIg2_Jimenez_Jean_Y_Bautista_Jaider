@@ -14,7 +14,7 @@ function CharacterId() {
   }, [id]);
 
   if (!character) {
-    return <p className="loading">Cargando información del personaje...</p>;
+    return <p className="loading">Cargando informacionn del personaje...</p>;
   }
 
   return (
@@ -31,7 +31,7 @@ function CharacterId() {
         <div className="character-info">
           <p><strong>Edad:</strong> {character.age}</p>
           <p><strong>Estado:</strong> {character.status}</p>
-          <p><strong>Ocupación:</strong> {character.occupation}</p>
+          <p><strong>Ocupacion:</strong> {character.occupation}</p>
         </div>
 
         {character.description && (
@@ -39,7 +39,7 @@ function CharacterId() {
         )}
 
         <div className="phrases-section">
-          <h2>Frases más icónicas</h2>
+          <h2>Frases mas icónicas</h2>
           <ul>
             {character.phrases && character.phrases.length > 0 ? (
               character.phrases.map((frase, index) => (
