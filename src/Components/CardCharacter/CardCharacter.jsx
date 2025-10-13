@@ -17,49 +17,51 @@ export default function CardCharacter({ character }) {
   return (
     <Card
       sx={{
-        width: 300,  
+        width: 300,
         height: 500,
-        borderRadius: 3,
-        boxShadow: 3,
+        borderRadius: 5,
+        boxShadow: '0 6px 12px rgba(0,0,0,0.15)',        
+        overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        paddingBottom: "15px",
+        background: 'linear-gradient(180deg, #fff8e1 0%, #ffecb3 100%)',
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
         '&:hover': {
-          transform: 'translateY(-5px)',
-          boxShadow: 6,
+          transform: 'translateY(-8px)',
+          boxShadow: '0 10px 20px rgba(0,0,0,0.25)',
         },
       }}
     >
-      <CardActionArea sx={{ flexGrow: 1 }}>
+      <CardActionArea onClick={ () => navigate(`/Characters/${character.id}`)}>
         <CardMedia
           component="img"
           image={`https://cdn.thesimpsonsapi.com/500${character.portrait_path}`}
           alt={character.name}
           sx={{
-            backgroundColor: '#fffde7',
-            height: 300,
+            height: 280,
             objectFit: 'cover',
             transition: 'transform 0.4s ease',
-            '&:hover': { transform: 'scale(1.05)' },
+            '&:hover': { transform: 'scale(1.06)' },
           }}
         />
 
         <CardContent
           sx={{
-            flexGrow: 1,
             textAlign: 'center',
-            backgroundColor: '#fffde7',
-            paddingBottom: 0,
+            backgroundColor: '#fff8e1',
+            padding: '12px 16px',
+            borderRadius: '15px',
+            margin: '5px',
           }}
         >
           <Typography
             variant="h6"
             sx={{
               fontWeight: 'bold',
-              color: '#f3b518ff',
-              textShadow: '1px 1px 2px rgba(0,0,0,0.4)',
-              mb: 0.5,
+              color: '#f9c80e',
+              textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+              mb: 1,
             }}
           >
             {character.name}
@@ -68,8 +70,8 @@ export default function CardCharacter({ character }) {
           <Typography
             variant="body2"
             sx={{
-              color: '#fff59d',
-              textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+              color: '#6d4c41',
+              fontStyle: 'italic',
             }}
           >
             {character.occupation || 'Sin ocupación conocida'}
@@ -79,36 +81,40 @@ export default function CardCharacter({ character }) {
 
       <CardActions
         sx={{
-          justifyContent: 'flex-start',
-          backgroundColor: '#fffde7',
-          padding: '8px 12px',
+          flexGrow: 1,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center', 
+          backgroundColor: '#ffe082',
+          padding: '12px 10px',
+          borderRadius: '20px',
+          marginTop: 'auto', 
         }}
       >
         <Button
-          size="small"
           variant="contained"
-          color="danger"
           sx={{
-            borderTopRightRadius: '30px',
-            borderBottomRightRadius: '30px',
-            borderTopLeftRadius: 0,
-            borderBottomLeftRadius: 0,
-            paddingRight: '15px',
+            background: 'linear-gradient(135deg, #fdd835, #fbc02d)',
+            color: '#000',
+            fontWeight: 'bold',
+            borderRadius: '50px',
             textTransform: 'none',
-            '&:hover': {              
-              backgroundColor: '#ffdc15ff', // tono más oscuro
-              transform: 'translateX(3px)',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+            px: 3,
+            py: 0.8,
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              background: 'linear-gradient(135deg, #ffca28, #fdd835)',
+              transform: 'scale(1.05)',
             },
           }}
-          onClick={
-            ()=> navigate(`/Characters/${character.id}`)
-          }
+          onClick={() => navigate(`/Characters/${character.id}`)}
         >
           <i
-            className="bi bi-arrow-return-right"
-            style={{ marginRight: '10px' }}
+            className="bi bi-arrow-right-circle"
+            style={{ marginRight: '8px', fontSize: '1.1rem' }}
           ></i>
-          Ver máss
+          Ver más
         </Button>
       </CardActions>
     </Card>

@@ -1,4 +1,4 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -7,9 +7,64 @@
 
 .characters-list {
   display: flex;
-  flex-wrap: wrap;     
-  gap: 30px;         
+  flex-wrap: wrap;
+  gap: 30px;
   padding: 0;
-  justify-content: center; 
+  justify-content: center;
 }
 
+.characters-section {
+
+  /*background: linear-gradient(180deg, #ffecb3 0%, #ffe0b2 50%, #fff8e1 100%);*/
+  /*background: linear-gradient(180deg, #81d4fa 0%, #b3e5fc 50%, #e1f5fe 100%);*/
+  background: linear-gradient(180deg, #ffb74d 0%, #ffe082 50%, #fff8e1 100%);
+  min-height: 100vh;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.simpsons-header {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.simpsons-title {
+  color: #2b2b2b;  
+  font-weight: 700;
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  text-shadow:
+    2px 2px 0px #f3efef,
+    4px 4px 10px rgba(143, 139, 139, 0.25);
+}
+
+.simpsons-description {
+  color: #3b3b3b;
+  font-weight: 500;  
+  line-height: 1.7;
+  width: 75%;
+  margin: 0 auto;
+  font-size: 1.15rem;
+}
+
+.simpsons-description .highlight {
+  
+  color: #fdd835;
+  font-weight: 600;
+  text-shadow: 1px 1px 0px #f3efef, 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.simpsons-description .blue {
+  color: #1565c0;
+  font-weight: 600;
+}
+
+.simpsons-divider {
+  border: 2px solid #fdd835;
+  width: 70%;
+  margin: 2rem auto;
+}
