@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography, Container, Divider, Link } from '@mui/material';
 import { GitHub, Email, School } from '@mui/icons-material';
 import './Footer.css';
-
+import Nube from '../../assets/nube.avif';
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 

@@ -3,6 +3,7 @@ import { Toolbar, Box } from '@mui/material'
 
 import './App.css'
 import Header from './Components/Header/Header'
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 import Main from './Components/Main/Main'
 import Footer from './Components/Footer/Footer'
 
@@ -17,9 +18,10 @@ function App() {
     return (
         <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <HashRouter>
+                <ScrollToTop />
                 <Header />
                 <Toolbar />
-                
+
                 <Box component="main" sx={{ flex: 1 }}>
                     <Routes>
                         <Route path="/" element={<Main />} />

@@ -9,6 +9,8 @@ import Loading from '../../Components/Loading/Loading';
 import CardsEpisodes from '../../Components/CardsEpisodes/CardsEpisodes';
 import Button from '@mui/material/Button';
 
+import Nube from '../../assets/nube.avif';
+
 const EpisodeDetails = () => {
     const [value, setValue] = React.useState('1');
     const handleChange = (event, newValue) => { setValue(newValue); };
@@ -121,15 +123,26 @@ const EpisodeDetails = () => {
 
         }}>
             <TabContext value={value}>
-                <Box sx={{ display: 'flex', alignItems: 'center', borderBottom: 1, borderColor: 'divider', backgroundColor: '#50a1d3ff', px: 2, py: 0.5 }}>
+                <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    borderBottom: 1,
+                    borderColor: 'divider',
+                    backgroundColor: 'transparent',
+                    backgroundImage: `url(${Nube})`,
+                    px: 2, py: 0.5
+                }}>
+
+
                     <TabList
                         onChange={handleChange}
                         aria-label="lab API tabs example"
+
                         TabIndicatorProps={{ sx: { backgroundColor: '#ff6f00', height: 4, borderRadius: 2 } }}
                         sx={{
                             display: 'flex',
                             ml: 'auto',
-                            gap: 2,
+                            gap: 4,
                             alignItems: 'center',
                         }}
                     >
@@ -137,12 +150,14 @@ const EpisodeDetails = () => {
                             label="Random Episode"
                             value="1"
                             sx={{
+                                fontFamily: 'SimpsonsFont, Arial, sans-serif',
                                 textTransform: 'none',
                                 fontWeight: 700,
-                                color: '#ffffff',
-                                px: 2,
+                                color: '#ffffffff',
+                                px: 3,
                                 py: 0.6,
                                 borderRadius: 2,
+                                backgroundColor: '#ff6f007a',
                                 minHeight: 36,
                                 transition: 'transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease',
                                 '&:hover': { backgroundColor: 'rgba(255,255,255,0.08)', transform: 'translateY(-2px)' },
@@ -150,20 +165,23 @@ const EpisodeDetails = () => {
                                     backgroundColor: '#ff6f00',
                                     color: '#fff',
                                     boxShadow: '0 6px 18px rgba(255,111,0,0.14)'
-                                }
+                                },
                             }}
                         />
                         <Tab
+
                             label="List Episodes"
                             value="2"
                             sx={{
+                                fontFamily: 'SimpsonsFont, Arial, sans-serif',
                                 textTransform: 'none',
                                 fontWeight: 700,
                                 color: '#ffffff',
-                                px: 2,
+                                px: 3,
                                 py: 0.6,
                                 borderRadius: 2,
                                 minHeight: 36,
+                                backgroundColor: '#ff6f007a',
                                 transition: 'transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease',
                                 '&:hover': { backgroundColor: 'rgba(255,255,255,0.08)', transform: 'translateY(-2px)' },
                                 '&.Mui-selected': {
