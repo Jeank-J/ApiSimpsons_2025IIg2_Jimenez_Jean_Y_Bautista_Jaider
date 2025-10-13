@@ -117,17 +117,71 @@ const EpisodeDetails = () => {
 
 
     return (
-        <Box sx={{ width: '100%', typography: 'body1' }}>
-            <TabContext value={value}
+        <Box sx={{
+            width: '100%', typography: 'body1',
 
-            >
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <TabList onChange={handleChange} aria-label="lab API tabs example">
-                        <Tab label="Random Episode" value="1" />
-                        <Tab label="List Episodes" value="2" />
+        }}>
+            <TabContext value={value}>
+                <Box sx={{ display: 'flex', alignItems: 'center', borderBottom: 1, borderColor: 'divider', backgroundColor: '#50a1d3ff', px: 2, py: 0.5 }}>
+                    <TabList
+                        onChange={handleChange}
+                        aria-label="lab API tabs example"
+                        TabIndicatorProps={{ sx: { backgroundColor: '#ff6f00', height: 4, borderRadius: 2 } }}
+                        sx={{
+                            display: 'flex',
+                            ml: 'auto',
+                            gap: 2,
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Tab
+                            label="Random Episode"
+                            value="1"
+                            sx={{
+                                textTransform: 'none',
+                                fontWeight: 700,
+                                color: '#ffffff',
+                                px: 2,
+                                py: 0.6,
+                                borderRadius: 2,
+                                minHeight: 36,
+                                transition: 'transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease',
+                                '&:hover': { backgroundColor: 'rgba(255,255,255,0.08)', transform: 'translateY(-2px)' },
+                                '&.Mui-selected': {
+                                    backgroundColor: '#ff6f00',
+                                    color: '#fff',
+                                    boxShadow: '0 6px 18px rgba(255,111,0,0.14)'
+                                }
+                            }}
+                        />
+                        <Tab
+                            label="List Episodes"
+                            value="2"
+                            sx={{
+                                textTransform: 'none',
+                                fontWeight: 700,
+                                color: '#ffffff',
+                                px: 2,
+                                py: 0.6,
+                                borderRadius: 2,
+                                minHeight: 36,
+                                transition: 'transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease',
+                                '&:hover': { backgroundColor: 'rgba(255,255,255,0.08)', transform: 'translateY(-2px)' },
+                                '&.Mui-selected': {
+                                    backgroundColor: '#ff6f00',
+                                    color: '#fff',
+                                    boxShadow: '0 6px 18px rgba(255,111,0,0.14)'
+                                }
+                            }}
+                        />
                     </TabList>
                 </Box>
-                <TabPanel value="1">
+                <TabPanel value="1"
+                    sx={{
+                        backgroundColor: '#edd68fff',
+                        minHeight: '100vh',
+                    }}
+                >
                     <CardContent
                         sx={{
                             height: '100%',
@@ -136,12 +190,25 @@ const EpisodeDetails = () => {
                             alignItems: 'center',
                             justifyItems: 'center',
                             gap: 10,
-                            backgroundColor: '#70D1FE',
+                            backgroundColor: '#ffecb3',
                             borderRadius: '8px',
                             boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                             marginTop: '16px',
                         }} >
-                        <Button variant="contained" onClick={() => getRandomEpisode()}>
+                        <Button variant="contained" onClick={() => getRandomEpisode()}
+                            sx={{
+                                fontWeight: 'bold',
+                                fontFamily: 'Comic Sans MS, cursive, sans-serif',
+                                backgroundColor: '#ff6f00',
+                                '&:hover': {
+                                    backgroundColor: '#ff6f00',
+                                    transform: 'translateY(2px)',
+
+                                    transition: 'background-color 0.3s ease',
+                                }
+                            }}
+
+                        >
                             Ay, caramba
                         </Button>
                         {RandomEpisode !== -1 && <CardsEpisodes key={RandomEpisode.id} episode={RandomEpisode} />}

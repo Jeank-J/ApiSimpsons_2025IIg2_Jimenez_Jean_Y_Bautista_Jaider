@@ -15,7 +15,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 import './Header.css'
@@ -37,6 +37,8 @@ function DrawerAppBar(props) {
         setMobileOpen((prevState) => !prevState);
     };
 
+    const location = useLocation();
+
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }} className="simpsons-text">
@@ -46,32 +48,39 @@ function DrawerAppBar(props) {
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.label} disablePadding>
-                        <ListItemButton
-                            sx={{
-                                textAlign: 'center',
-                                transition: 'all 0.3s ease-in-out',
-                                borderRadius: '8px',
-                                margin: '4px 8px',
-                                '&:hover': {
-                                    backgroundColor: '#FFD700',
-                                    color: '#0f172a',
-                                    transform: 'translateX(8px)',
-                                    boxShadow: '0 2px 8px rgba(255, 215, 0, 0.3)'
-                                }
-                            }}
-                            className="simpsons-text"
-                            component={Link} to={item.path}
-                        >
-                            <ListItemText
-                                primary={item.label}
-                                sx={{
-                                    '& .MuiListItemText-primary': {
-                                        fontFamily: 'SimpsonsFont, Arial, sans-serif',
-                                        fontWeight: 'bold'
-                                    }
-                                }}
-                            />
-                        </ListItemButton>
+                        {(() => {
+                            const active = location.pathname === item.path;
+                            return (
+                                <ListItemButton
+                                    sx={{
+                                        textAlign: 'center',
+                                        transition: 'all 0.22s ease-in-out',
+                                        borderRadius: '8px',
+                                        margin: '6px 10px',
+                                        backgroundColor: active ? '#FFD700' : 'transparent',
+                                        color: active ? '#0f172a' : '#fff',
+                                        boxShadow: active ? '0 6px 18px rgba(255,215,0,0.28)' : 'none',
+                                        '&:hover': {
+                                            backgroundColor: '#FFD700',
+                                            color: '#0f172a',
+                                            transform: 'translateX(6px)'
+                                        }
+                                    }}
+                                    className="simpsons-text"
+                                    component={Link} to={item.path}
+                                >
+                                    <ListItemText
+                                        primary={item.label}
+                                        sx={{
+                                            '& .MuiListItemText-primary': {
+                                                fontFamily: 'SimpsonsFont, Arial, sans-serif',
+                                                fontWeight: 'bold'
+                                            }
+                                        }}
+                                    />
+                                </ListItemButton>
+                            );
+                        })()}
                     </ListItem>
                 ))}
             </List>
@@ -114,35 +123,39 @@ function DrawerAppBar(props) {
 
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {navItems.map((item) => (
-                            <Button
-                                component={Link} to={item.path}
-                                key={item.label}
-                                sx={{
-                                    color: '#FFFFFF',
-                                    fontWeight: 'bold',
-                                    marginX: 1,
-                                    borderRadius: '20px',
-                                    padding: '8px 16px',
-                                    transition: 'all 0.3s ease-in-out',
-                                    position: 'relative',
-                                    backgroundColor: 'transparent',
-                                    '&:hover': {
-                                        backgroundColor: '#FFD700',
-                                        color: '#0f172a',
-                                        transform: 'translateY(-2px)',
-                                        boxShadow: '0 4px 12px rgba(255, 215, 0, 0.4)'
-                                    },
-                                    '&:active': {
-                                        transform: 'translateY(0px)',
-                                        transition: 'transform 0.1s ease'
-                                    }
-                                }}
-                                className="simpsons-text"
-                            >
-                                {item.label}
-                            </Button>
-                        ))}
+                        {navItems.map((item) => {
+                            const active = location.pathname === item.path;
+                            return (
+                                <Button
+                                    component={Link} to={item.path}
+                                    key={item.label}
+                                    sx={{
+                                        color: active ? '#0f172a' : '#FFFFFF',
+                                        backgroundColor: active ? '#FFD700' : 'transparent',
+                                        fontWeight: 'bold',
+                                        marginX: 1,
+                                        borderRadius: '20px',
+                                        padding: '8px 16px',
+                                        transition: 'all 0.18s ease-in-out',
+                                        position: 'relative',
+                                        boxShadow: active ? '0 6px 18px rgba(255, 215, 0, 0.32)' : 'none',
+                                        '&:hover': {
+                                            backgroundColor: active ? '#FFD700' : '#FFD700',
+                                            color: '#0f172a',
+                                            transform: 'translateY(-2px)',
+                                            boxShadow: '0 4px 12px rgba(255, 215, 0, 0.4)'
+                                        },
+                                        '&:active': {
+                                            transform: 'translateY(0px)',
+                                            transition: 'transform 0.08s ease'
+                                        }
+                                    }}
+                                    className="simpsons-text"
+                                >
+                                    {item.label}
+                                </Button>
+                            );
+                        })}
                     </Box>
                 </Toolbar>
             </AppBar>
