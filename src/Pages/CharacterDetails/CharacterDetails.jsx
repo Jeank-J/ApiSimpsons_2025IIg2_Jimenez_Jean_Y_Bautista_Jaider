@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import CardCharacter from '../../Components/CardCharacter/CardCharacter'
 import Loading from '../../Components/Loading/Loading';
+import SearchElement from '../../Components/SearchElement/SearchElement';
 
 import './CharacterDetails.css';
 const CharacterDetails = () => {
@@ -29,7 +30,7 @@ const CharacterDetails = () => {
     return (
         <>
             <section className="characters-section">
-                                
+
                 <div className="container my-5 text-center simpsons-header">
                     <h1 className="simpsons-title">
                         Personajes de Los Simpson
@@ -43,6 +44,12 @@ const CharacterDetails = () => {
                     </p>
 
                     <hr className="simpsons-divider" />
+                </div>                
+
+                <div className="containerSearch">                    
+                    <div className="search-box">
+                        <SearchElement />
+                    </div>
                 </div>
 
 
@@ -51,7 +58,7 @@ const CharacterDetails = () => {
                         <p className="text-center fs-5">Cargando...</p>
                     ) : (
                         <>
-                            <ul className="characters-list row justify-content-center g-4">
+                            <ul className="characters-list row justify-content-center g-4" >
                                 {characters.map((character) => (
                                     <CardCharacter key={character.id} character={character} />
                                 ))}
@@ -81,6 +88,7 @@ const CharacterDetails = () => {
                         </>
                     )}
                 </div>
+                
             </section>
         </>
     )
