@@ -1,4 +1,5 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
 import { Toolbar, Box } from '@mui/material'
 
 import './App.css'
@@ -14,7 +15,17 @@ import LocationDetails from './Pages/LocationDetails/LocationDetails'
 import LocationDetail from './Pages/LocationDetail/LocationDetail'
 import NotFound from './Pages/NotFound/NotFound'
 
+import AOS from 'aos'
+
 function App() {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        })        
+    }, [])
+
     return (
         <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <HashRouter>

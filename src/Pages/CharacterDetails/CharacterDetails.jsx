@@ -44,7 +44,7 @@ const CharacterDetails = () => {
                     </p>
 
                     <hr className="simpsons-divider" />
-                </div>
+                </div>                
 
                 <div className="containerSearch">                    
                     <div className="search-box">
@@ -58,7 +58,7 @@ const CharacterDetails = () => {
                         <p className="text-center fs-5">Cargando...</p>
                     ) : (
                         <>
-                            <ul className="characters-list row justify-content-center g-4">
+                            <ul className="characters-list row justify-content-center g-4" >
                                 {characters.map((character) => (
                                     <CardCharacter key={character.id} character={character} />
                                 ))}
@@ -88,6 +88,7 @@ const CharacterDetails = () => {
                         </>
                     )}
                 </div>
+                
             </section>
         </>
     )
