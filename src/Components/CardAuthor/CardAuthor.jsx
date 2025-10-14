@@ -37,7 +37,7 @@ export default function CardAuthor({ autor }) {
                 rel="noopener noreferrer"
                 className="linkedin-link"
             >
-                <i class="bi bi-linkedin"></i>
+                <i className="bi bi-linkedin"></i>
             </a>
         </Card>
     );

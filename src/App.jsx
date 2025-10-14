@@ -19,13 +19,6 @@ import AOS from 'aos'
 
 function App() {
 
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        })        
-    }, [])
-
     return (
         <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <HashRouter>

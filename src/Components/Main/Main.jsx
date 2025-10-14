@@ -46,7 +46,7 @@ const Main = () => {
                             </button>
                         </div>
 
-                        <div className="col-md-6 text-center my-4">
+                        <div className="col-md-6 text-center my-4" >
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"
                                 alt="Familia Simpson"
@@ -103,7 +103,7 @@ const Main = () => {
                     <h3 className="fw-bold text-primary mb-4">¿Que puedes hacer en AppSimpsons?</h3>
                     <div className="row">
                         <div className="col-md-4 mb-4">
-                            <div className="card h-100 border-0 shadow-sm">
+                            <div className="card h-100 border-0 deep-shadow2 rounded-5">
                                 <div className="card-body">
                                     <i className="bi bi-people display-4 text-warning"></i>
                                     <h5 className="mt-3">Explorar Personajes</h5>
@@ -112,7 +112,7 @@ const Main = () => {
                             </div>
                         </div>
                         <div className="col-md-4 mb-4">
-                            <div className="card h-100 border-0 shadow-sm">
+                            <div className="card h-100 border-0 deep-shadow2 rounded-5">
                                 <div className="card-body">
                                     <i className="bi bi-geo-alt display-4 text-warning"></i>
                                     <h5 className="mt-3">Conocer Lugares</h5>
@@ -121,7 +121,7 @@ const Main = () => {
                             </div>
                         </div>
                         <div className="col-md-4 mb-4">
-                            <div className="card h-100 border-0 shadow-sm">
+                            <div className="card h-100 border-0 deep-shadow2 rounded-5">
                                 <div className="card-body">
                                     <i className="bi bi-tv display-4 text-warning"></i>
                                     <h5 className="mt-3">Revivir Episodios</h5>
