@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
+import { useNavigate } from 'react-router-dom';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
 
 const filter = createFilterOptions();
 
 export default function SimpsonsAutocomplete() {
+
     const [value, setValue] = useState(null);
+    const [inputValue, setInputValue] = useState('');
     const [options, setOptions] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchAllCharacters = async () => {
@@ -43,10 +49,25 @@ export default function SimpsonsAutocomplete() {
         fetchAllCharacters();
     }, []);
 
-    const handleCheckCharacter = (text) => {        
+    const handleCheckCharacter = (text) => {
         const found = options.find(opt => opt.title.toLowerCase() === text.toLowerCase());
         if (found) {
-            console.log('in the brr');
+            setValue(null); // Limpiar el autocomplete
+            setInputValue(''); // Limpiar el input
+            navigate(`/Characters/${found.id}`);
+            console.log('Character found and navigating');
+        } else {
+            console.log('Character not found');
+        }
+    };
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevenir comportamiento por defecto
+            const textToSearch = inputValue.trim();
+            if (textToSearch) {
+                handleCheckCharacter(textToSearch);
+            }
         }
     };
 
@@ -54,20 +75,23 @@ export default function SimpsonsAutocomplete() {
         <Autocomplete
             value={value}
             onChange={(event, newValue) => {
-                let SelecText;
+                // Solo actualizar el estado, sin navegar
                 if (typeof newValue === 'string') {
-                    SelecText = newValue;
                     setValue({ title: newValue });
+                    setInputValue(newValue);
                 } else if (newValue && newValue.inputValue) {
-                    SelecText = newValue.inputValue;
                     setValue({ title: newValue.inputValue });
+                    setInputValue(newValue.inputValue);
                 } else {
-                    SelecText = newValue?.title || '';
                     setValue(newValue);
+                    setInputValue(newValue?.title || '');
                 }
-                console.log(SelecText)
-                handleCheckCharacter(SelecText);
             }}
+            inputValue={inputValue}
+            onInputChange={(event, newInputValue) => {
+                setInputValue(newInputValue);
+            }}
+            onKeyDown={handleKeyDown}
             filterOptions={(options, params) => {
                 const filtered = filter(options, params);
                 const { inputValue } = params;
@@ -100,9 +124,54 @@ export default function SimpsonsAutocomplete() {
                     </li>
                 );
             }}
-            sx={{ width: 300 }}
+            sx={{
+                width: 300,
+                '& .MuiOutlinedInput-root': {
+                    borderRadius: 3,
+                    backgroundColor: 'white',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                    '&:hover': {
+                        backgroundColor: '#f8f9fa',
+                    },
+                    '&.Mui-focused': {
+                        backgroundColor: 'white',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                    }
+                },
+                '& .MuiAutocomplete-listbox': {
+                    borderRadius: 2,
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                }
+            }}
             freeSolo
-            renderInput={(params) => <TextField {...params} label="Buscar personaje de Los Simpsons" />}
+            renderInput={(params) => (
+                <TextField
+                    placeholder='Search Character'
+                    {...params}                    
+                    onKeyDown={handleKeyDown}
+                    InputProps={{
+                        ...params.InputProps,
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon
+                                    sx={{
+                                        color: 'primary.main',
+                                        fontSize: 24
+                                    }}
+                                />
+                            </InputAdornment>
+                        ),
+                    }}
+                    sx={{
+                        '& .MuiInputLabel-root': {
+                            color: 'text.secondary',                            
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                            color: 'primary.main',                            
+                        }
+                    }}
+                />
+            )}
         />
     );
 }

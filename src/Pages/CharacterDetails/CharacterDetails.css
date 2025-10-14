@@ -74,17 +74,14 @@
   width: 90%;
   flex-direction: column;
   justify-content: flex-end;  
-  align-items: end;
-  margin: 10px;
-  padding: 20px auto;
+  align-items: end;  
+  padding-bottom: 30px;
 
 }
 
-.search-box {
-  background-color: #e4d8b3;  
+.search-box {  
   border-radius: px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-  padding: 8px 16px;
   width: 300px;
   transition: all 0.3s ease-in-out;
 }
