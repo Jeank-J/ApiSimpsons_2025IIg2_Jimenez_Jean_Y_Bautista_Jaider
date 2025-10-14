@@ -1,34 +1,31 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import react, { useState } from "react"
+import { Card } from '@mui/material';
+import imgS from '../../../public/queSuenio.jpeg';
 
-import imgS from '../../../public/queSuenio.jpeg'
-export default function CardAuthor() {
+import './CardAuthor.css';
+
+export default function CardAuthor({ autor }) {
+
+  const [hovered, setHovered] = useState(false);
+  const IMG = !hovered ? autor.img : imgS;
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="green iguanaaaaa"
-        height="auto"
-        image={imgS}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+    <Card
+      className="author-card text-center p-4 shadow"
+      onMouseEnter = { () => setHovered(true)}
+      onMouseLeave = { () => setHovered(false)}
+    >
+      <div className="author-img-container mx-auto">
+        <img src={IMG} alt={autor.name} className="author-img img-fluid" />
+      </div>
+      <h5 className="author-name mt-3 mb-2">{autor[0]}</h5>
+      <a
+        href={autor[1]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="linkedin-link"
+      >
+        <i class="bi bi-linkedin"></i>
+      </a>
     </Card>
   );
 }

@@ -3,13 +3,27 @@ import './Main.css'
 import CardAuthor from '../CardAuthor/CardAuthor'
 import workImg from '../../assets/workProject.webp'
 import { useNavigate } from 'react-router-dom';
-
+import IMGJ from '../../assets/jeank.jpeg'
 import PuercoA from '../../assets/puercoArania.jpg'
 
 
 const Main = () => {
     const navigate = useNavigate();
     const handleClick = () => { navigate(`/Characters`); };
+
+    const autores = [
+        {
+            name: 'Jean Carlos Jimenez',
+            linkedin: 'https://www.linkedin.com/in/jean-carlos-jimenez-ortega/',
+            img: IMGJ,            
+        },
+        {
+            name: 'Jaider Bautista',
+            linkedin: 'https://www.linkedin.com/in/jaiderbautista/',
+            img: {},            
+        }
+    ];
+
     return (
         <>
             <section className="py-5 bg-warning-subtle text-dark">
@@ -121,11 +135,9 @@ const Main = () => {
 
             <section className="container py-5">
                 <h3 className="text-center mb-4 text-primary fw-bold">Autores del Proyecto</h3>
-                <div className="row justify-content-center"
-                    style={{ gap: '30px' }}
-                >
-                    <CardAuthor />
-                    <CardAuthor />
+                <div className="d-flex justify-content-center flex-row flex-wrap" style={{ gap: '10px' }}>
+                    <CardAuthor autor={autores[0]} />
+                    <CardAuthor autor={autores[1]} />
                 </div>
             </section>
         </>

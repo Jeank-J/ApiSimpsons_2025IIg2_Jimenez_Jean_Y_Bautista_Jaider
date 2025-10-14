@@ -1,0 +1,50 @@
+.author-card {  
+  background: #fff8e1;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.author-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.author-img-container {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #fdd835;
+  box-shadow: 0 0 15px rgba(253, 216, 53, 0.6);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.author-img-container:hover {
+  box-shadow: 0 0 20px rgba(253, 216, 53, 0.9);
+  transform: scale(1.05);
+}
+
+.author-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-name {  
+  color: #525151;
+  letter-spacing: 1px;
+}
+
+.linkedin-link {
+  color: #0a66c2;
+  font-size: 1.8rem;
+  transition: color 0.3s ease;
+}
+
+.linkedin-link:hover {
+  color: #004182;
+}
+
+.linkedin-icon {
+  vertical-align: middle;
+}
