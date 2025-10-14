@@ -238,16 +238,17 @@ const EpisodeDetails = () => {
                 }}>
                     <CardContent
                         sx={{
-                            height: '100%',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
+                            display: 'grid',
+                            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' }, // 1 en móvil, 2 en escritorio
+                            gap: 4,
                             justifyItems: 'center',
-                            gap: 10,
+                            alignItems: 'stretch',
                             backgroundColor: '#70D1FE',
                             borderRadius: '8px',
                             boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                             marginTop: '16px',
+                            padding: '16px',
+                            minHeight: '100vh',
                         }}
                     >
 

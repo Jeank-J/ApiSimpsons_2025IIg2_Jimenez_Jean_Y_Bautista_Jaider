@@ -4,6 +4,7 @@ import CardAuthor from '../CardAuthor/CardAuthor'
 import workImg from '../../assets/workProject.webp'
 import { useNavigate } from 'react-router-dom';
 import IMGJ from '../../assets/jeank.jpeg'
+import Jaiderbr from '../../assets/jaiderbr.jpeg'
 import PuercoA from '../../assets/puercoArania.jpg'
 
 
@@ -15,12 +16,12 @@ const Main = () => {
         {
             name: 'Jean Carlos Jimenez',
             linkedin: 'https://www.linkedin.com/in/jean-carlos-jimenez-ortega/',
-            img: IMGJ,            
+            img: IMGJ,
         },
         {
             name: 'Jaider Bautista',
             linkedin: 'https://www.linkedin.com/in/jaiderbautista/',
-            img: PuercoA,            
+            img: Jaiderbr,
         }
     ];
 
@@ -77,10 +78,10 @@ const Main = () => {
                             </h3>
                             <p className="lead">
                                 <strong>AppSimpsons</strong> es una aplicacion desarrollada como
-                                demostración práctica del consumo de una
-                                <span className="highlight">API REST</span>, la generación
+                                demostracion practica del consumo de una
+                                <span className="highlight">API REST</span>, la generacion
                                 de <span className="highlight">vistas dinamicas</span> y la
-                                <span className="highlight">navegación estructurada</span> mediante
+                                <span className="highlight">navegacion estructurada</span> mediante
                                 <span className="highlight">React</span>, aprovechando la flexibilidad de
                                 <span className="highlight">componentes reutilizables</span> y la
                                 potencia de <span className="highlight">Bootstrap</span> para el

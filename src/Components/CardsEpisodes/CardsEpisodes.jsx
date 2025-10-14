@@ -15,7 +15,7 @@ function CardsEpisodes({ episode }) {
 
 
     return (
-        <Card sx={{ maxWidth: 1280 }}>
+        <Card sx={{ maxWidth: 1000, backgroundColor: '#ddc98a' }}>
             <CardActionArea
 
                 disableRipple
@@ -26,12 +26,12 @@ function CardsEpisodes({ episode }) {
                     '&:active': { backgroundColor: 'transparent' },
                     '&:focus': { backgroundColor: 'transparent' },
                     '&.Mui-focusVisible': { backgroundColor: 'transparent' },
-                    '& .MuiCardActionArea-focusHighlight': { backgroundColor: 'transparent' }
+                    '& .MuiCardActionArea-focusHighlight': { backgroundColor: 'transparent' },
                 }}
             >
                 <CardMedia
                     component="img"
-                    height="auto"
+                    height="400px"
                     image={`${base}${episode.image_path}`}
                     alt={episode.name || 'Episode Image'}
                     sx={{
@@ -60,7 +60,7 @@ function CardsEpisodes({ episode }) {
 
 
                     <Accordion
-                        defaultExpanded={!window.matchMedia('(max-width:600px)').matches}
+                        defaultExpanded={!window.matchMedia('(max-width:62000px)').matches}
                         sx={{
                             border: '1px solid #ffeaa7',
                             borderRadius: '12px',

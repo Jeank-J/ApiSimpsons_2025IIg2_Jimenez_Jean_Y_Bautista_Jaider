@@ -1,44 +1,43 @@
-
 .author-img-container {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 5px solid #fdd835;
-  box-shadow: 0 0 20px rgba(253, 216, 53, 0.6);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  position: relative;
-  z-index: 1;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fdd835;
+    box-shadow: 0 0 20px rgba(253, 216, 53, 0.6);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .author-img-container:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(253, 216, 53, 0.9);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(253, 216, 53, 0.9);
 }
 
 .author-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.author-name {  
-  color: #403f3f;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  z-index: 1;
-  position: relative;
+.author-namee {
+    color: #403f3f !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    z-index: 1;
+    position: relative;
 }
 
 .linkedin-link {
-  color: #0a66c2;
-  font-size: 1.8rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-  z-index: 1;
-  position: relative;
+    color: #0a66c2;
+    font-size: 1.8rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+    position: relative;
 }
 
 .linkedin-link:hover {
-  color: #004182;
-  transform: scale(1.15);
+    color: #004182;
+    transform: scale(1.15);
 }
