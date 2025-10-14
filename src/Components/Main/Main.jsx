@@ -20,7 +20,7 @@ const Main = () => {
         {
             name: 'Jaider Bautista',
             linkedin: 'https://www.linkedin.com/in/jaiderbautista/',
-            img: {},            
+            img: PuercoA,            
         }
     ];
 
