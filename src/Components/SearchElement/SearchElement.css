@@ -1,0 +1,21 @@
+.containerSearch {
+  display: flex;
+  justify-content: center;  /* Centra horizontalmente */
+  align-items: center;      /* Centra verticalmente si el contenedor tiene altura */
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.search-box {
+  background-color: #fff8e1; /* color suave que combine con el fondo */
+  border-radius: 25px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  padding: 8px 16px;
+  width: 300px;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
