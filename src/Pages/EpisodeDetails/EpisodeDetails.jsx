@@ -1,15 +1,113 @@
 import * as React from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import Box from '@mui/material/Box';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import Tab from '@mui/material/Tab';
 import CardContent from '@mui/material/CardContent';
-const base = "https://cdn.thesimpsonsapi.com/500";
+import Button from '@mui/material/Button';
 import Loading from '../../Components/Loading/Loading';
 import CardsEpisodes from '../../Components/CardsEpisodes/CardsEpisodes';
-import Button from '@mui/material/Button';
-
 import Nube from '../../assets/nube.avif';
+
+const base = "https://cdn.thesimpsonsapi.com/500";
+
+
+const cardVariants = {
+    offscreen: {
+        y: 300,
+        opacity: 0,
+        rotate: -10,
+    },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        rotate: 0,
+        transition: {
+            type: 'spring',
+            bounce: 0.4,
+            duration: 0.8,
+        },
+    },
+};
+
+const randomCardVariants = {
+    hidden: { y: 30, opacity: 0, scale: 0.96, rotateX: -12, rotateY: 6, rotateZ: -0.3 },
+    show: {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        rotateX: 0,
+        rotateY: 0,
+        rotateZ: 0,
+        transition: { type: 'spring', stiffness: 260, damping: 22 },
+    },
+    exit: { y: -10, opacity: 0, scale: 0.98, transition: { duration: 0.2 } },
+};
+
+const rowsContainer = {
+    margin: '40px auto',
+    width: '100%',
+    maxWidth: 1200,
+    paddingBottom: 100,
+    scrollSnapType: 'y proximity',
+};
+
+const rowStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, minmax(280px, 1fr))',
+    gap: 24,
+    alignItems: 'start',
+    justifyItems: 'center',
+    minHeight: 'min(100svh, 1200px)',
+    padding: '0 12px',
+    margin: '0 0 6vh',
+    scrollSnapAlign: 'start',
+};
+
+const cardContainer = {
+    overflow: 'visible',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+    paddingTop: 20,
+    marginBottom: 0,
+    width: '100%',
+};
+
+
+const card = {
+    width: '100%',
+    maxWidth: 920,
+    display: 'block',
+    background: 'transparent',
+    boxShadow: 'none',
+    transformOrigin: '10% 60%',
+};
+
+const randomPerspective = {
+    width: '100%',
+    maxWidth: 560,
+    perspective: 1000,
+    transformStyle: 'preserve-3d',
+};
+
+const episodesGridStyle = () => {
+    const isSmall = typeof window !== 'undefined' && window.matchMedia('(max-width: 720px)').matches;
+    return {
+        margin: '24px auto 0',
+        width: '100%',
+        maxWidth: 1280,
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        gap: isSmall ? 16 : 24,
+        padding: isSmall ? '0 8px' : '0 16px',
+        alignItems: 'start',
+        justifyItems: 'center',
+    };
+};
+
 
 const EpisodeDetails = () => {
     const [value, setValue] = React.useState('1');
@@ -69,7 +167,6 @@ const EpisodeDetails = () => {
         }
     };
 
-
     React.useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
@@ -112,15 +209,12 @@ const EpisodeDetails = () => {
         }
     }, [searchParams]);
 
-
     if (loading) return <Loading preloadedImg={preloadedImg} />;
-
-
 
     return (
         <Box sx={{
-            width: '100%', typography: 'body1',
-
+            width: '100%',
+            typography: 'body1',
         }}>
             <TabContext value={value}>
                 <Box sx={{
@@ -130,14 +224,12 @@ const EpisodeDetails = () => {
                     borderColor: 'divider',
                     backgroundColor: 'transparent',
                     backgroundImage: `url(${Nube})`,
-                    px: 2, py: 0.5
+                    px: 2,
+                    py: 0.5,
                 }}>
-
-
                     <TabList
                         onChange={handleChange}
                         aria-label="lab API tabs example"
-
                         TabIndicatorProps={{ sx: { backgroundColor: '#ff6f00', height: 4, borderRadius: 2 } }}
                         sx={{
                             display: 'flex',
@@ -158,18 +250,16 @@ const EpisodeDetails = () => {
                                 py: 0.6,
                                 borderRadius: 2,
                                 backgroundColor: '#ff6f007a',
-                                minHeight: 36,
                                 transition: 'transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease',
                                 '&:hover': { backgroundColor: 'rgba(255,255,255,0.08)', transform: 'translateY(-2px)' },
                                 '&.Mui-selected': {
                                     backgroundColor: '#ff6f00',
                                     color: '#fff',
-                                    boxShadow: '0 6px 18px rgba(255,111,0,0.14)'
+                                    boxShadow: '0 6px 18px rgba(255,111,0,0.14)',
                                 },
                             }}
                         />
                         <Tab
-
                             label="List Episodes"
                             value="2"
                             sx={{
@@ -187,13 +277,14 @@ const EpisodeDetails = () => {
                                 '&.Mui-selected': {
                                     backgroundColor: '#ff6f00',
                                     color: '#fff',
-                                    boxShadow: '0 6px 18px rgba(255,111,0,0.14)'
-                                }
+                                    boxShadow: '0 6px 18px rgba(255,111,0,0.14)',
+                                },
                             }}
                         />
                     </TabList>
                 </Box>
-                <TabPanel value="1"
+                <TabPanel
+                    value="1"
                     sx={{
                         backgroundColor: '#edd68fff',
                         minHeight: '100vh',
@@ -211,8 +302,11 @@ const EpisodeDetails = () => {
                             borderRadius: '8px',
                             boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                             marginTop: '16px',
-                        }} >
-                        <Button variant="contained" onClick={() => getRandomEpisode()}
+                        }}
+                    >
+                        <Button
+                            variant="contained"
+                            onClick={() => getRandomEpisode()}
                             sx={{
                                 fontWeight: 'bold',
                                 fontFamily: 'Comic Sans MS, cursive, sans-serif',
@@ -220,29 +314,42 @@ const EpisodeDetails = () => {
                                 '&:hover': {
                                     backgroundColor: '#ff6f00',
                                     transform: 'translateY(2px)',
-
                                     transition: 'background-color 0.3s ease',
-                                }
+                                },
                             }}
-
                         >
-                            Ay, caramba
+                            Ay Caramba
                         </Button>
-                        {RandomEpisode !== -1 && <CardsEpisodes key={RandomEpisode.id} episode={RandomEpisode} />}
 
+                        <AnimatePresence mode="wait">
+                            {RandomEpisode !== -1 && RandomEpisode && (
+                                <motion.div
+                                    key={RandomEpisode.id}
+                                    initial="hidden"
+                                    animate="show"
+                                    exit="exit"
+                                    layout
+                                    variants={randomCardVariants}
+                                    style={randomPerspective}
+                                >
+                                    <motion.div
+                                        style={{ borderRadius: 12 }}
+                                    >
+                                        <CardsEpisodes episode={RandomEpisode} />
+                                    </motion.div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </CardContent>
-
                 </TabPanel>
-                <TabPanel value="2" sx={{
-                    backgroundColor: '#059adfff',
-                }}>
+                <TabPanel
+                    value="2"
+                    sx={{
+                        backgroundColor: '#059adfff',
+                    }}
+                >
                     <CardContent
                         sx={{
-                            display: 'grid',
-                            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' }, // 1 en móvil, 2 en escritorio
-                            gap: 4,
-                            justifyItems: 'center',
-                            alignItems: 'stretch',
                             backgroundColor: '#70D1FE',
                             borderRadius: '8px',
                             boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
@@ -251,26 +358,42 @@ const EpisodeDetails = () => {
                             minHeight: '100vh',
                         }}
                     >
-
-                        {Episode.map((ep) => (
-                            <CardsEpisodes key={ep.id} episode={ep} />
-                        ))}
-
+                        <div style={episodesGridStyle()}>
+                            {Episode.map((ep) => (
+                                <motion.div
+                                    key={ep.id}
+                                    style={cardContainer}
+                                    initial="offscreen"
+                                    whileInView="onscreen"
+                                    viewport={{ amount: 0.6, once: true }}
+                                >
+                                    <motion.div style={card} variants={cardVariants}>
+                                        <CardsEpisodes episode={ep} />
+                                    </motion.div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </CardContent>
-                    <nav className="pagination" aria-label="Paginacion de ubicaciones" >
-                        <button className="page-btn" onClick={() => setPage(prev => Math.max(prev - 1, 1))} disabled={page === 1}>
+                    <nav className="pagination" aria-label="Paginacion de ubicaciones">
+                        <button
+                            className="page-btn"
+                            onClick={() => setPage(prev => Math.max(prev - 1, 1))}
+                            disabled={page === 1}
+                        >
                             Anterior
                         </button>
                         <div className="page-info">Pagina {page} de {totalPages}</div>
-                        <button className="page-btn" onClick={() => setPage(prev => Math.min(prev + 1, totalPages))} disabled={page === totalPages}>
+                        <button
+                            className="page-btn"
+                            onClick={() => setPage(prev => Math.min(prev + 1, totalPages))}
+                            disabled={page === totalPages}
+                        >
                             Siguiente
                         </button>
                     </nav>
-
-
                 </TabPanel>
             </TabContext>
-        </Box >
+        </Box>
     );
 };
 

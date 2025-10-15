@@ -15,8 +15,9 @@ function CardsEpisodes({ episode }) {
 
 
     return (
-        <Card sx={{ maxWidth: 1000, backgroundColor: '#ddc98a' }}>
+        <Card sx={{ maxWidth: 1100, width: '100%', backgroundColor: '#ddc98a' }}>
             <CardActionArea
+                component="div"
 
                 disableRipple
                 disableTouchRipple
@@ -31,14 +32,16 @@ function CardsEpisodes({ episode }) {
             >
                 <CardMedia
                     component="img"
-                    height="400px"
                     image={`${base}${episode.image_path}`}
                     alt={episode.name || 'Episode Image'}
                     sx={{
-                        '&:hover': {
-                            transform: 'scale(1.05)',
-                            transition: 'transform 0.1s ease-in-out',
-                        },
+                        width: '100%',
+                        display: 'block',
+                        aspectRatio: '16 / 9',
+                        objectFit: 'cover',
+                        borderTopLeftRadius: 4,
+                        borderTopRightRadius: 4,
+                        // keep image static to avoid layout shift on hover
 
                     }}
 

@@ -6,6 +6,25 @@
     scrollbar-width: thin;
 }
 
+/* Global responsive media defaults */
+img,
+video,
+svg,
+canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* remove inline-gap and ensure it participates in layout */
+}
+
+/* Avoid horizontal scroll on mobile due to overflowing children */
+html,
+body,
+#root {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 @font-face {
     font-family: 'SimpsonsFont';
     src: url('/Font/Simpsonfont DEMO.otf') format('opentype');
