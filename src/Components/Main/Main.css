@@ -20,11 +20,20 @@
 }
 
 .deep-shadow {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 10px 25px rgba(218, 179, 5, 0.45);
 }
 
 .deep-shadow:hover {
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 12px 35px rgba(105, 152, 212, 0.55);
+    transform: translateY(-4px);
+}
+
+.deep-shadow2 {
+    box-shadow: 0 10px 25px rgba(218, 144, 34, 0.45);
+}
+
+.deep-shadow2:hover {
+    box-shadow: 0 12px 35px rgba(105, 152, 212, 0.55);
     transform: translateY(-4px);
 }
 
