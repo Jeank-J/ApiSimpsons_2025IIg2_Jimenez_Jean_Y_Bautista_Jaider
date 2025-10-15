@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Main.css'
 import CardAuthor from '../CardAuthor/CardAuthor'
 import workImg from '../../assets/workProject.webp'
@@ -25,13 +25,30 @@ const Main = () => {
         }
     ];
 
+    useEffect(() => {
+        // IntersectionObserver to add 'in-view' when elements appear
+        const elements = document.querySelectorAll('.reveal');
+        if (!elements.length) return;
+        const io = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target); // run once per element
+                }
+            });
+        }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+
+        elements.forEach(el => io.observe(el));
+        return () => io.disconnect();
+    }, []);
+
     return (
         <>
-            <section className="py-5 bg-warning-subtle text-dark">
+            <section className="py-5 bg-warning-subtle text-dark reveal fade-in-up">
                 <div className="container">
 
                     <div className="row align-items-center">
-                        <div className="col-md-6 mb-4 mb-md-0">
+                        <div className="col-md-6 mb-4 mb-md-0 reveal fade-in-left">
                             <h2 className="fw-bold text-primary mb-3">
                                 Bienvenido al mundo de Los Simpson
                             </h2>
@@ -46,7 +63,7 @@ const Main = () => {
                             </button>
                         </div>
 
-                        <div className="col-md-6 text-center my-4" >
+                        <div className="col-md-6 text-center my-4 reveal fade-in-right" >
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"
                                 alt="Familia Simpson"
@@ -59,11 +76,11 @@ const Main = () => {
             </section>
 
 
-            <section className="py-5 bg- text-dark " id="about">
+            <section className="py-5 bg- text-dark reveal fade-in-up" id="about">
                 <div className="container">
                     <div className="row align-items-center">
 
-                        <div className="col-md-5 text-center p-3 my-2 order-2 order-md-1">
+                        <div className="col-md-5 text-center p-3 my-2 order-2 order-md-1 reveal fade-in-left">
                             <img
                                 src={workImg}
                                 alt="Familia Simpson"
@@ -72,7 +89,7 @@ const Main = () => {
                             />
                         </div>
 
-                        <div className="col-md-7" >
+                        <div className="col-md-7 reveal fade-in-right" >
                             <h3 className="fw-bold mb-4 text-primary border-bottom pb-2">
                                 Sobre el proyecto
                             </h3>
@@ -98,12 +115,12 @@ const Main = () => {
                 </div>
             </section>
 
-            <section className="py-5 bg-warning-subtle text-dark">
+            <section className="py-5 bg-warning-subtle text-dark reveal fade-in-up">
                 <div className="container text-center">
                     <h3 className="fw-bold text-primary mb-4">¿Que puedes hacer en AppSimpsons?</h3>
                     <div className="row">
                         <div className="col-md-4 mb-4">
-                            <div className="card h-100 border-0 deep-shadow2 rounded-5">
+                            <div className="card h-100 border-0 deep-shadow2 rounded-5 reveal fade-in-up delay-0">
                                 <div className="card-body">
                                     <i className="bi bi-people display-4 text-warning"></i>
                                     <h5 className="mt-3">Explorar Personajes</h5>
@@ -112,7 +129,7 @@ const Main = () => {
                             </div>
                         </div>
                         <div className="col-md-4 mb-4">
-                            <div className="card h-100 border-0 deep-shadow2 rounded-5">
+                            <div className="card h-100 border-0 deep-shadow2 rounded-5 reveal fade-in-up delay-1">
                                 <div className="card-body">
                                     <i className="bi bi-geo-alt display-4 text-warning"></i>
                                     <h5 className="mt-3">Conocer Lugares</h5>
@@ -121,7 +138,7 @@ const Main = () => {
                             </div>
                         </div>
                         <div className="col-md-4 mb-4">
-                            <div className="card h-100 border-0 deep-shadow2 rounded-5">
+                            <div className="card h-100 border-0 deep-shadow2 rounded-5 reveal fade-in-up delay-2">
                                 <div className="card-body">
                                     <i className="bi bi-tv display-4 text-warning"></i>
                                     <h5 className="mt-3">Revivir Episodios</h5>
@@ -134,11 +151,11 @@ const Main = () => {
             </section>
 
 
-            <section className="container py-5">
+            <section className="container py-5 reveal fade-in-up">
                 <h3 className="text-center mb-4 text-primary fw-bold">Autores del Proyecto</h3>
                 <div className="d-flex justify-content-center flex-row flex-wrap" style={{ gap: '10px' }}>
-                    <CardAuthor autor={autores[0]} />
-                    <CardAuthor autor={autores[1]} />
+                    <div className="reveal fade-in-up delay-0"><CardAuthor autor={autores[0]} /></div>
+                    <div className="reveal fade-in-up delay-1"><CardAuthor autor={autores[1]} /></div>
                 </div>
             </section>
         </>

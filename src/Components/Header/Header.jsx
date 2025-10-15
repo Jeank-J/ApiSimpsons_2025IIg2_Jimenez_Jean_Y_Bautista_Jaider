@@ -98,6 +98,7 @@ function DrawerAppBar(props) {
                     backgroundColor: '#6B7280',
                     boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
                 }}
+                className="enter-fade-down"
             >
                 <Toolbar>
                     <IconButton

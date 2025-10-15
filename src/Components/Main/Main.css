@@ -70,6 +70,99 @@
 }
 
 
+/* ===== Entrance animations (lightweight, reusable) ===== */
+.reveal {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.reveal.in-view {
+    opacity: 1;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-up.in-view {
+    animation: fadeInUp 720ms cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.fade-in-left.in-view {
+    animation: fadeInLeft 720ms cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.fade-in-right.in-view {
+    animation: fadeInRight 720ms cubic-bezier(.2, .7, .2, 1) both;
+}
+
+/* Simple delay helpers for staggered sequences */
+.delay-0 {
+    animation-delay: 0ms;
+}
+
+.delay-1 {
+    animation-delay: 120ms;
+}
+
+.delay-2 {
+    animation-delay: 240ms;
+}
+
+.delay-3 {
+    animation-delay: 360ms;
+}
+
+.delay-4 {
+    animation-delay: 480ms;
+}
+
+/* Reduced motion: show content without animation */
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal,
+    .reveal.in-view,
+    .fade-in-up.in-view,
+    .fade-in-left.in-view,
+    .fade-in-right.in-view {
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
 @media (min-width: 760px) {
     .introduccion {
         display: grid;
